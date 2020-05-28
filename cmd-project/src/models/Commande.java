@@ -1,7 +1,16 @@
 package models;
 
 public abstract class Commande implements IExecutable {
-	
-private String nom;
 
+	private String nom;
+	
+	public Commande(String pNom) {
+		this.nom=pNom;
+	}
+
+	public String getNom() {
+		return nom;
+	}
+
+	
 }
