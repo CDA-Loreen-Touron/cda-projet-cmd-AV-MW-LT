@@ -9,4 +9,10 @@ public Commande(String pNom) {
 	this.nom=pNom;
 }
 
+
+public void executer() {
+	// TODO Auto-generated method stub
+	
+}
+
 }

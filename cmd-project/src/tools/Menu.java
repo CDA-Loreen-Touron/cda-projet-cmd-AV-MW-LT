@@ -2,6 +2,8 @@ package tools;
 
 import java.util.Scanner;
 
+import models.CommandeIsPrime;
+
 public class Menu {
 
 	private static boolean verif;
@@ -28,9 +30,9 @@ public class Menu {
 			case "river":
 				System.out.println("Commande en cours de dev");
 				break;
-			case "isprime":
-				System.out.println("Commande en cours de dev");
-				break;
+//			case "isprime":
+//				CommandeIsPrime.executer();
+//				break;
 			case "history":
 				System.out.println("Commande en cours de dev");
 				break;
