@@ -1,10 +1,12 @@
 package tools;
 
-import java.util.Scanner;
+import models.Hystory;
 
 public class Menu {
 
 	private static boolean verif;
+
+	private static final Hystory historique = new Hystory("historique");
 
 	public static void menu() {
 		while (!verif) {
@@ -26,39 +28,48 @@ public class Menu {
 				System.out.println("Commande en cours de dev");
 				break;
 			case "river":
+				historique.ajouterElementList("river");
 				System.out.println("Commande en cours de dev");
 				break;
 			case "isprime":
+				historique.ajouterElementList("isprime");
 				System.out.println("Commande en cours de dev");
 				break;
 			case "history":
-				System.out.println("Commande en cours de dev");
+				historique.executer();
 				break;
 			case "histclear":
-				System.out.println("Commande en cours de dev");
+				historique.clear();
 				break;
 			case "dir":
 				System.out.println("Commande en cours de dev");
 				break;
 			case "dirng":
+				historique.ajouterElementList("dirng");
 				System.out.println("Commande en cours de dev");
 				break;
 			case "cd":
+				historique.ajouterElementList("cd");
 				System.out.println("Commande en cours de dev");
 				break;
 			case "find":
+				historique.ajouterElementList("find");
 				System.out.println("Commande en cours de dev");
 				break;
 			case "cat":
+				historique.ajouterElementList("cat");
 				System.out.println("Commande en cours de dev");
 				break;
 			case "copy":
+				historique.ajouterElementList("copy");
 				System.out.println("Commande en cours de dev");
 				break;
 			case "crf":
+				historique.ajouterElementList("crf");
 				System.out.println("Commande en cours de dev");
 				break;
 			case "crd":
+				historique.ajouterElementList("crd");
 				System.out.println("Commande en cours de dev");
 				break;
 			default:

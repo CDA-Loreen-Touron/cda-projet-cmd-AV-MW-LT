@@ -18,9 +18,10 @@ public class EntreeClavier {
 	
 	public static int lireInt() {
 		
-		System.out.println(">");
+		System.out.print(">");
 
 			int value = sc.nextInt();
+			sc.nextLine();
 			return value;
 		
 	}
