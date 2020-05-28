@@ -1,10 +1,11 @@
 package exec;
 
+import tools.Menu;
+
 public class ProgramMain {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+			Menu.menu();
 	}
 
 }
