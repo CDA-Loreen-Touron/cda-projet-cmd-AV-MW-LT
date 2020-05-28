@@ -10,10 +10,12 @@ public class Menu {
 	private static boolean verif;
 
 	private static final Hystory historique = new Hystory("historique");
+	private static String currentDir ="";
 
 	public static void menu() {
 		while (!verif) {
-
+			currentDir=System.getProperty("user.dir");
+			System.out.println(currentDir);
 			String choix = EntreeClavier.lireString(); 
 
 			switch (choix.toLowerCase()) {
