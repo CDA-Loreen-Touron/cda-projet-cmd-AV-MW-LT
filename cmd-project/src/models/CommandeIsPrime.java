@@ -34,6 +34,7 @@ public final class CommandeIsPrime extends Commande {
 			}
 			}
 		} catch (Exception e) {
+			this.executer();
 			System.out.println("Veuillez entrer un nombre supérieur à 0 sans virgule.");
 		}
 		
