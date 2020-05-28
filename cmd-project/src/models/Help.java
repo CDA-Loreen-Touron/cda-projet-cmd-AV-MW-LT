@@ -13,9 +13,6 @@ public class Help extends Commande {
 		// TODO Auto-generated method stub
 		
 	}
-	
-	
-	
 }
 
 // si la commande est égale à "help" afficher le message "Bonjour sur la console cda

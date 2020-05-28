@@ -2,6 +2,9 @@ package tools;
 
 import models.Hystory;
 
+import models.CommandeIsPrime;
+import models.CommandeRiver;
+
 public class Menu {
 
 	private static boolean verif;
@@ -11,7 +14,7 @@ public class Menu {
 	public static void menu() {
 		while (!verif) {
 
-			String choix = EntreeClavier.lireString();
+			String choix = EntreeClavier.lireString(); 
 
 			switch (choix.toLowerCase()) {
 
@@ -29,11 +32,13 @@ public class Menu {
 				break;
 			case "river":
 				historique.ajouterElementList("river");
-				System.out.println("Commande en cours de dev");
+				CommandeRiver river= new CommandeRiver(null);
+				river.executer();
 				break;
 			case "isprime":
 				historique.ajouterElementList("isprime");
-				System.out.println("Commande en cours de dev");
+				CommandeIsPrime a=new CommandeIsPrime(null);
+				a.executer();
 				break;
 			case "history":
 				historique.executer();
