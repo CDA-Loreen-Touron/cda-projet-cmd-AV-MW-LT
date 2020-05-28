@@ -2,6 +2,9 @@ package models;
 
 public class Help {
 	
-	int a = 5;
-
+	
+	
 }
+
+// si la commande est égale à "help" afficher le message "Bonjour sur la console cda
+//La commande "Help" doit afficher une description pour chaque commande
