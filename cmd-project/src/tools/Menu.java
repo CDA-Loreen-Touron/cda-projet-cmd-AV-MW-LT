@@ -2,6 +2,8 @@ package tools;
 
 import models.Hystory;
 
+import models.CommandeIsPrime;
+
 public class Menu {
 
 	private static boolean verif;
@@ -33,7 +35,8 @@ public class Menu {
 				break;
 			case "isprime":
 				historique.ajouterElementList("isprime");
-				System.out.println("Commande en cours de dev");
+				CommandeIsPrime a=new CommandeIsPrime(null);
+				a.executer();
 				break;
 			case "history":
 				historique.executer();
