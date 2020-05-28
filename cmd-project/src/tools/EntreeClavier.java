@@ -10,7 +10,7 @@ public class EntreeClavier {
 		
 		System.out.print(">");
 		String choix = sc.nextLine();
-		choix = choix.trim();
+		choix = choix.trim();//supprime les espaces avant et apres lettres
 		return choix;
 	}
 	

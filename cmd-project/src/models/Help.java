@@ -1,6 +1,12 @@
 package models;
 
-public class Help {
+public class Help extends Commande {
+
+	@Override
+	public void executer() {
+		// TODO Auto-generated method stub
+		
+	}
 	
 	
 	
