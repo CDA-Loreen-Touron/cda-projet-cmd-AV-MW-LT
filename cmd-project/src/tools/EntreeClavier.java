@@ -10,7 +10,8 @@ public class EntreeClavier {
 		
 		System.out.print(">");
 		String choix = sc.nextLine();
-		choix = choix.trim();//supprime les espaces avant et apres lettres
+		choix = choix.trim();
+		
 		return choix;
 	}
 	
@@ -18,13 +19,10 @@ public class EntreeClavier {
 	public static int lireInt() {
 		
 		System.out.println(">");
-		int value = 0;
-		try {
-			value = sc.nextInt();
-		} catch (Exception e) {
-			System.out.println("Veuillez rentrez un chiffre !");
-		}
-		return value;
+
+			int value = sc.nextInt();
+			return value;
+		
 	}
 
 }
