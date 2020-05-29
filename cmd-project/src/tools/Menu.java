@@ -1,6 +1,8 @@
 package tools;
 
 import java.util.Scanner;
+import models.Help;
+import models.Pwd;
 
 public class Menu {
 
@@ -14,16 +16,20 @@ public class Menu {
 			switch (choix.toLowerCase()) {
 
 			case "help":
-				System.out.println("Commande en cours de dev");
+				Help help = new Help ("help");
+				help.executer();
 				break;
 			case "exit":
 				System.out.println("Commande en cours de dev");
 				break;
 			case "pwd":
-				System.out.println("Commande en cours de dev");
+				Pwd pwd = new Pwd ("PWD");
+				pwd.executer();
 				break;
 			case "quit":
-				System.out.println("Commande en cours de dev");
+				if (choix.equals("quit")) {
+				System.out.println("Merci au revoir");
+				}
 				break;
 			case "river":
 				System.out.println("Commande en cours de dev");

@@ -2,11 +2,16 @@ package models;
 
 public class Help extends Commande {
 
+
+	public Help (String pNom) {
+		super(pNom);
+	}
+	
 	@Override
 	public void executer() {
-		// TODO Auto-generated method stub
-		
+		System.out.println("Bonjour de la part de la console CDA :)");
 	}
+	
 	
 	
 	
