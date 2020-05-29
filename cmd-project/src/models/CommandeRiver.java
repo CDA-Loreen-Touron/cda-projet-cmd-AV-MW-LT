@@ -2,7 +2,7 @@ package models;
 
 import tools.EntreeClavier;
 
-public class CommandeRiver extends Commande {
+public final class CommandeRiver extends Commande {
 
 	private String param;
 	

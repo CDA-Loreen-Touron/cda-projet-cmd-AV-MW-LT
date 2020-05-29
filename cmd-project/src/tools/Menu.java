@@ -85,12 +85,10 @@ public class Menu {
 				if(indice!=-1) {
 					historique.ajouterElementList("cat");
 					commandeCat.setParams(params);
-					commandeCat.executer();
-					
+					commandeCat.executer();	
 				}else {
 					System.out.println("Cette commande prend un paramètre !");
-				}
-				
+				}	
 				break;
 			case "copy":
 				historique.ajouterElementList("copy");
