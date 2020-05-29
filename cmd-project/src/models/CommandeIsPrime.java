@@ -1,51 +1,45 @@
 package models;
 
-import tools.EntreeClavier;
+import java.util.Scanner;
 
 public final class CommandeIsPrime extends Commande {
 
-	private static boolean isPrime=true;
+	Scanner sc = new Scanner(System.in);
+	private static boolean isPrime = true;
+	private String param = "";
+
 	public CommandeIsPrime(String pNom) {
 		super(pNom);
-
 	}
 
-	public  void executer() {
-		System.out.println("******** Saisissez un nombre entier supérieur à zéro. *******");
-		
+	@Override
+
+	public void executer() {
+
 		try {
-			int i=EntreeClavier.lireInt();
-			if (i<1) {
-				System.out.println("Saisissez un nombre entier supérieur à 0.");
-			}else {
-			
-			for (int j=2; j<i;j++) {
-				if(i%j==0) {
-					isPrime=false;
+			int i = Integer.parseInt(param);
+
+			for (int j = 2; j < i; j++) {
+				if (i % j == 0) {
+					isPrime = false;
 					break;
-				}else {
-					isPrime=true;
+				} else {
+					isPrime = true;
 				}
 			}
-			if(isPrime==true) {
-				System.out.println(i+" est bien un nombre premier.");
-			}else {
+			if (isPrime == true) {
+				System.out.println(i + " est bien un nombre premier.");
+			} else {
 				System.out.println(i + " n'est pas un nombre premier.");
 			}
-			}
 		} catch (Exception e) {
-			this.executer();
-			System.out.println("Veuillez entrer un nombre supérieur à 0 sans virgule.");
+			System.out.println("Erreure de saisie de la commande isprime.");
+			System.out.println("Exemple : isprime 11");	
 		}
-		
-		
-		
+
 	}
 
-	
-	
-	
-	
-	
-	
+	public void setParam(String pParam) {
+		this.param = pParam.trim();
+	}
 }

@@ -5,8 +5,6 @@ import models.Hystory;
 
 import models.CommandeIsPrime;
 import models.CommandeRiver;
-
-import java.util.Scanner;
 import models.Help;
 import models.Pwd;
 
@@ -17,6 +15,7 @@ public class Menu {
 
 	private static final Hystory historique = new Hystory("historique");
 	private static String currentDir ="";
+	private static String params = "";
 
 	public static void menu() {
 		
@@ -25,7 +24,11 @@ public class Menu {
 			currentDir=System.getProperty("user.dir");
 			System.out.println(currentDir);
 			String choix = EntreeClavier.lireString(); 
-
+			int indice = choix.indexOf(" ");
+			if(indice!= -1) {
+				params =choix.substring(indice+1);
+				choix = choix.substring(0,indice);
+			}
 			switch (choix.toLowerCase()) {
 
 			case "help":
@@ -52,6 +55,7 @@ public class Menu {
 			case "isprime":
 				historique.ajouterElementList("isprime");
 				CommandeIsPrime a=new CommandeIsPrime(null);
+				a.setParam(params);
 				a.executer();
 				break;
 			case "history":
