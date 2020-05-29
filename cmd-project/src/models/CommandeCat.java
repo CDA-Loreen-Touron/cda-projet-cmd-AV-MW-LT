@@ -4,9 +4,9 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 
-public class Cat extends Commande {
+public  final class CommandeCat extends Commande {
 
-	public Cat(String pNom) {
+	public CommandeCat(String pNom) {
 		super(pNom);
 
 	}
@@ -15,6 +15,8 @@ public class Cat extends Commande {
 
 	@Override
 	public void executer() {
+		
+		
 		File file = new File(params);
 		
 		if(!file.exists()) {

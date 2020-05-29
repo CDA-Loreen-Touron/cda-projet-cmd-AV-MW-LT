@@ -1,61 +1,65 @@
 package tools;
 
-
-import models.Cat;
+import models.CommandeCat;
+import models.CommandeCrf;
 import models.CommandeIsPrime;
 import models.CommandeRiver;
 import models.Help;
 import models.Hystory;
 import models.Pwd;
 
+public final class Menu {
 
-public class Menu {
-
-	private static boolean verif;//false par defaut
+	private static boolean verif;// false par defaut
 
 	private static final Hystory historique = new Hystory("historique");
-	private static final Cat commandeCat = new Cat("cat");
-	private static String currentDir ="";
+	private static final CommandeCat commandeCat = new CommandeCat("cat");
+	private static final CommandeCrf commandeCrf = new CommandeCrf("crf");
+	private static String currentDir = "";
 	private static String params = "";
 
 	public static void menu() {
-		
+
 		while (!verif) {
-			
-			currentDir=System.getProperty("user.dir");
+
+			currentDir = System.getProperty("user.dir");
 			System.out.println(currentDir);
-			String choix = EntreeClavier.lireString(); 
+			String choix = EntreeClavier.lireString();
 			int indice = choix.indexOf(" ");
-			if(indice!= -1) {
-				params =choix.substring(indice+1);
-				choix = choix.substring(0,indice);
+			if (indice != -1) {
+				params = choix.substring(indice + 1);
+				choix = choix.substring(0, indice);
 			}
+
 			switch (choix.toLowerCase()) {
 
 			case "help":
-				Help help = new Help ("help");
+				Help help = new Help("help");
 				help.executer();
 				break;
-			case "exit"://le programme s'arrete, n'a plus de possibilité d'écrire, le programme se ferme, on sort du while 
-				verif=true;
+			case "exit":// le programme s'arrete, n'a plus de possibilité d'écrire, le programme se
+						// ferme, on sort du while
+				verif = true;
 				System.out.println("Merci au revoir");
 				break;
 			case "pwd":
-				Pwd pwd = new Pwd ("PWD");
+				Pwd pwd = new Pwd("PWD");
 				pwd.executer();
 				break;
-			case "quit"://le programme s'arrete
-				verif=true;
+			case "quit":// le programme s'arrete
+				verif = true;
 				System.out.println("Merci au revoir");
 				break;
 			case "river":
 				historique.ajouterElementList("river");
+
 				CommandeRiver river= new CommandeRiver(null);
 				river.setParam(params);
+
 				river.executer();
 				break;
 			case "isprime":
-				historique.ajouterElementList("isprime");
+				historique.ajouterElementList("isprime"); 
 				CommandeIsPrime a=new CommandeIsPrime(null);
 				a.setParam(params); 
 				a.executer();
@@ -82,21 +86,39 @@ public class Menu {
 				System.out.println("Commande en cours de dev");
 				break;
 			case "cat":
-				if(indice!=-1) {
+				if (indice != -1) {
+
 					historique.ajouterElementList("cat");
+
 					commandeCat.setParams(params);
 					commandeCat.executer();	
 				}else {
 					System.out.println("Cette commande prend un paramètre !");
 				}	
+
+					commandeCat.setParams(currentDir + "/" + params);
+					commandeCat.executer();
+
+				} else {
+					System.out.println("Cette commande prend un paramètre !");
+				}
+
+>>>>>>> 196a1d2df709adc22e89b00375e82a20c47ffd6a
 				break;
 			case "copy":
 				historique.ajouterElementList("copy");
 				System.out.println("Commande en cours de dev");
 				break;
 			case "crf":
-				historique.ajouterElementList("crf");
-				System.out.println("Commande en cours de dev");
+				if (indice != -1) {
+					historique.ajouterElementList("crf");
+					commandeCrf.setParams(currentDir + "/" + params);
+					commandeCrf.executer();
+
+				} else {
+					System.out.println("Cette commande prend un paramètre !");
+				}
+
 				break;
 			case "crd":
 				historique.ajouterElementList("crd");
