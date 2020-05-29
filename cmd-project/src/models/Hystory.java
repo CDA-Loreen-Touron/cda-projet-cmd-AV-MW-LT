@@ -5,36 +5,37 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 public class Hystory extends Commande {
-	
+
 	private final ArrayList<String> historique;
 
 	public Hystory(String pNom) {
 		super(pNom);
-		historique= new ArrayList<>();
+		historique = new ArrayList<>();
 	}
 
 	@Override
 	public void executer() {
-		
-	this.historique.forEach(System.out::println);	
-	}
-	
-	public void ajouterElementList(String pCommande) {
-		
-		
-		if(this.historique.size()==10) {
-		this.historique.remove(0);	
-			
+
+		if (this.historique.size() == 0) {
+			System.out.println("l'historique est vide !");
 		}
-		LocalDateTime ldt = LocalDateTime.now()	;
-		DateTimeFormatter dtfH = DateTimeFormatter.ofPattern("HH:mm:ss");	
-		DateTimeFormatter dtfD = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-		String y = String.format(" commande :%s utilisée à %s le %s ", pCommande,ldt.format(dtfH),ldt.format(dtfD));
-		this.historique.add(y);
-		
-		
-		
+		this.historique.forEach(System.out::println);
 	}
+
+	public void ajouterElementList(String pCommande) {
+
+		if (this.historique.size() == 10) {
+			this.historique.remove(0);
+
+		}
+		LocalDateTime ldt = LocalDateTime.now();
+		DateTimeFormatter dtfH = DateTimeFormatter.ofPattern("HH:mm:ss");
+		DateTimeFormatter dtfD = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+		String y = String.format(" commande :%s utilisée à %s le %s ", pCommande, ldt.format(dtfH), ldt.format(dtfD));
+		this.historique.add(y);
+
+	}
+
 	public void clear() {
 		this.historique.clear();
 	}
