@@ -23,7 +23,10 @@ public class Menu {
 			currentDir=System.getProperty("user.dir");
 			System.out.println(currentDir);
 			String choix = EntreeClavier.lireString(); 
-
+			int indice = choix.indexOf(" ");
+			if(indice!= -1) {
+				choix = choix.substring(0,indice);
+			}
 			switch (choix.toLowerCase()) {
 
 			case "help":
