@@ -11,8 +11,5 @@ public abstract class Commande implements IExecutable {
 	public String getNom() {
 		return nom;
 	}
-public void executer() {
-	// TODO Auto-generated method stub
-	
-}
+
 }
