@@ -53,15 +53,15 @@ public final class Menu {
 			case "river":
 				historique.ajouterElementList("river");
 
-				CommandeRiver river= new CommandeRiver(null);
+				CommandeRiver river = new CommandeRiver(null);
 				river.setParam(params);
 
 				river.executer();
 				break;
 			case "isprime":
-				historique.ajouterElementList("isprime"); 
-				CommandeIsPrime a=new CommandeIsPrime(null);
-				a.setParam(params); 
+				historique.ajouterElementList("isprime");
+				CommandeIsPrime a = new CommandeIsPrime(null);
+				a.setParam(params);
 				a.executer();
 				break;
 			case "history":
@@ -87,15 +87,6 @@ public final class Menu {
 				break;
 			case "cat":
 				if (indice != -1) {
-
-					historique.ajouterElementList("cat");
-
-					commandeCat.setParams(params);
-					commandeCat.executer();	
-				}else {
-					System.out.println("Cette commande prend un paramètre !");
-				}	
-
 					commandeCat.setParams(currentDir + "/" + params);
 					commandeCat.executer();
 
@@ -103,7 +94,6 @@ public final class Menu {
 					System.out.println("Cette commande prend un paramètre !");
 				}
 
->>>>>>> 196a1d2df709adc22e89b00375e82a20c47ffd6a
 				break;
 			case "copy":
 				historique.ajouterElementList("copy");
