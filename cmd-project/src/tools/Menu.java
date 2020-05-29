@@ -17,6 +17,7 @@ public class Menu {
 
 	private static final Hystory historique = new Hystory("historique");
 	private static String currentDir ="";
+	private static String params = "";
 
 	public static void menu() {
 		while (!verif) {
@@ -25,6 +26,7 @@ public class Menu {
 			String choix = EntreeClavier.lireString(); 
 			int indice = choix.indexOf(" ");
 			if(indice!= -1) {
+				params =choix.substring(indice+1);
 				choix = choix.substring(0,indice);
 			}
 			switch (choix.toLowerCase()) {
