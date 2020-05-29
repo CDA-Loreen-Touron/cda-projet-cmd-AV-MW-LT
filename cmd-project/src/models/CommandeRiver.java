@@ -13,10 +13,10 @@ public class CommandeRiver extends Commande {
 	@Override
 	public void executer() {
 		try {
-			System.out.println("****** Saisissez un premier nombre entier supérieur à 0. ******");
+		
 			int a = EntreeClavier.lireInt();
 			if(a<1) {
-				System.out.println("Erreur de saisie. Retour au menu principal.");
+			
 			}else {
 			System.out.println("****** Saisissez un deuxième entier pour la rivière. ******");
 			int b = EntreeClavier.lireInt();
