@@ -5,8 +5,6 @@ import models.Hystory;
 
 import models.CommandeIsPrime;
 import models.CommandeRiver;
-
-import java.util.Scanner;
 import models.Help;
 import models.Pwd;
 

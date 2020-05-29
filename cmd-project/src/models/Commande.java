@@ -10,11 +10,11 @@ public abstract class Commande implements IExecutable {
 	}
 
 	
+
 	
 
 	public String getNom() {
 		return nom;
 	}
-	
 
 }

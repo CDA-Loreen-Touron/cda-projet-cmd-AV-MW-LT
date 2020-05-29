@@ -9,6 +9,8 @@ public class CommandeRiver extends Commande {
 
 	}
 
+	
+	@Override
 	public void executer() {
 		try {
 			System.out.println("****** Saisissez un premier nombre entier supérieur à 0. ******");
@@ -21,23 +23,17 @@ public class CommandeRiver extends Commande {
 			if(b<0) {
 				System.out.println("Erreur de Saisie. Retour au menu principal.");
 			}else {
-				int boucles=0;
-			while (a!=b || boucles <20) {
+			while (a!=b ) {
 				if(a<b) {
 					a+=sumDigits(a);
-					boucles++;
+
 				}else {
 					b+=sumDigits(b);
-					boucles ++;
 				}
 			}
-			if( boucles>19) {
-				System.out.println("Désolé. Calcul trop long à réaliser.");
-			}else {
 			System.out.println("Les rivières se croisent en " + a);
-			}
-			}
 			
+			}
 		} 
 			}catch (Exception e) {
 	System.out.println("Saisie incorrecte.");
