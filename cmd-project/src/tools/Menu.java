@@ -1,11 +1,11 @@
 package tools;
 
 
-import models.Hystory;
-
+import models.Cat;
 import models.CommandeIsPrime;
 import models.CommandeRiver;
 import models.Help;
+import models.Hystory;
 import models.Pwd;
 
 
@@ -14,6 +14,7 @@ public class Menu {
 	private static boolean verif;//false par defaut
 
 	private static final Hystory historique = new Hystory("historique");
+	private static final Cat commandeCat = new Cat("cat");
 	private static String currentDir ="";
 	private static String params = "";
 
@@ -80,8 +81,15 @@ public class Menu {
 				System.out.println("Commande en cours de dev");
 				break;
 			case "cat":
-				historique.ajouterElementList("cat");
-				System.out.println("Commande en cours de dev");
+				if(indice!=-1) {
+					historique.ajouterElementList("cat");
+					commandeCat.setParams(params);
+					commandeCat.executer();
+					
+				}else {
+					System.out.println("Cette commande prend un paramètre !");
+				}
+				
 				break;
 			case "copy":
 				historique.ajouterElementList("copy");
