@@ -54,6 +54,7 @@ public class Menu {
 			case "isprime":
 				historique.ajouterElementList("isprime");
 				CommandeIsPrime a=new CommandeIsPrime(null);
+				a.setParam(params);
 				a.executer();
 				break;
 			case "history":
