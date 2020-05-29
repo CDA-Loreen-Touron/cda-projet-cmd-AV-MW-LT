@@ -48,12 +48,13 @@ public class Menu {
 			case "river":
 				historique.ajouterElementList("river");
 				CommandeRiver river= new CommandeRiver(null);
+				river.setParam(params);
 				river.executer();
 				break;
 			case "isprime":
 				historique.ajouterElementList("isprime");
 				CommandeIsPrime a=new CommandeIsPrime(null);
-				a.setParam(params);
+				a.setParam(params); 
 				a.executer();
 				break;
 			case "history":
