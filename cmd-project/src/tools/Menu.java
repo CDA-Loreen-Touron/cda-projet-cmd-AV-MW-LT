@@ -52,7 +52,10 @@ public final class Menu {
 				break;
 			case "river":
 				historique.ajouterElementList("river");
+
 				CommandeRiver river = new CommandeRiver(null);
+				river.setParam(params);
+
 				river.executer();
 				break;
 			case "isprime":
@@ -84,8 +87,6 @@ public final class Menu {
 				break;
 			case "cat":
 				if (indice != -1) {
-
-					historique.ajouterElementList("cat");
 					commandeCat.setParams(currentDir + "/" + params);
 					commandeCat.executer();
 

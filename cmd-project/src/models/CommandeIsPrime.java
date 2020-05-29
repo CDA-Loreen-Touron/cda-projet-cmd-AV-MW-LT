@@ -18,6 +18,9 @@ public final class CommandeIsPrime extends Commande {
 
 		try {
 			int i = Integer.parseInt(param);
+			if(i<1) {
+				System.out.println("Paramètre négatif");
+			}
 
 			for (int j = 2; j < i; j++) {
 				if (i % j == 0) {
@@ -41,5 +44,6 @@ public final class CommandeIsPrime extends Commande {
 
 	public void setParam(String pParam) {
 		this.param = pParam.trim();
+		
 	}
 }
