@@ -11,7 +11,7 @@ import models.Pwd;
 
 public class Menu {
 
-	private static boolean verif;
+	private static boolean verif;//false par defaut
 
 	private static final Hystory historique = new Hystory("historique");
 	private static final Cat commandeCat = new Cat("cat");
@@ -19,7 +19,9 @@ public class Menu {
 	private static String params = "";
 
 	public static void menu() {
+		
 		while (!verif) {
+			
 			currentDir=System.getProperty("user.dir");
 			System.out.println(currentDir);
 			String choix = EntreeClavier.lireString(); 
@@ -34,17 +36,17 @@ public class Menu {
 				Help help = new Help ("help");
 				help.executer();
 				break;
-			case "exit":
-				System.out.println("Commande en cours de dev");
+			case "exit"://le programme s'arrete, n'a plus de possibilité d'écrire, le programme se ferme, on sort du while 
+				verif=true;
+				System.out.println("Merci au revoir");
 				break;
 			case "pwd":
 				Pwd pwd = new Pwd ("PWD");
 				pwd.executer();
 				break;
-			case "quit":
-				if (choix.equals("quit")) {
+			case "quit"://le programme s'arrete
+				verif=true;
 				System.out.println("Merci au revoir");
-				}
 				break;
 			case "river":
 				historique.ajouterElementList("river");
