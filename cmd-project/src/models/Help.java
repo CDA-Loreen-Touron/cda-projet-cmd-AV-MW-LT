@@ -8,11 +8,22 @@ public class Help extends Commande {
 		// TODO Auto-generated constructor stub
 	}
 
+
+	public Help (String pNom) {
+		super(pNom);
+	}
+	
 	@Override
 	public void executer() {
-		// TODO Auto-generated method stub
-		
+		System.out.println("Bonjour de la part de la console CDA :)");
 	}
+<<<<<<< HEAD
+=======
+	
+	
+	
+	
+>>>>>>> dev-loreen
 }
 
 // si la commande est égale à "help" afficher le message "Bonjour sur la console cda
