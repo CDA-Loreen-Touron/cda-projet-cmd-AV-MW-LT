@@ -4,7 +4,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
-public class Hystory extends Commande {
+public final class Hystory extends Commande {
 
 	private final ArrayList<String> historique;
 

@@ -2,7 +2,7 @@ package tools;
 
 import java.util.Scanner;
 
-public class EntreeClavier {
+public final class EntreeClavier {
 	private static Scanner sc = new Scanner(System.in);
 
 	public static String lireString() {
