@@ -1,12 +1,14 @@
 package models;
 
-import java.util.ArrayList;
-import java.util.Map;
+import java.io.File;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
+import tools.Menu;
 
-public final class CommandeCD extends Commande {
+public class CommandeCD extends Commande {
 
-	private static final CommandeCD commandeCd = new CommandeCD("cd");
+	private String args;
 
 	public CommandeCD(String pNom) {
 		super(pNom);
@@ -20,50 +22,52 @@ public final class CommandeCD extends Commande {
 	
 	
 
-	
 	@Override
 	public void executer() {
-		// TODO Auto-generated method stub
+		Pattern p = Pattern.compile("\\W{1,}");
+		Matcher m = p.matcher(args);
 		
-	}
-	
-	//dans le dossier c:\\ (qui est le dossier en cours) il y a un repertoire affiché par dir, et dirng 
-	
+
+		if (m.find()) {
+			if (args.equals("..")) {
+				if (!Menu.getCurrentDir().equals("c:\\")) {
+					int lastBackSlash = Menu.getCurrentDir().lastIndexOf('\\');
+					Menu.setCurrentDir(Menu.getCurrentDir().substring(0, lastBackSlash));
+				}
+			}else {
+				System.out.println("Le chemin dï¿½accï¿½s spï¿½cifiï¿½ est introuvable");
+			}
+		} else {
+			
+			File directory = new File(Menu.getCurrentDir() + "\\" + args);
+
+			if (directory.isDirectory()) {
+				Menu.setCurrentDir(Menu.getCurrentDir() + "\\" + args);
+			} else {
+				System.out.println("Le chemin dï¿½accï¿½s spï¿½cifiï¿½ est introuvable");
+			}
+		}
+
 	}
 
-	@Override
-	public void executer() {
-		// TODO Auto-generated method stub
-		
+	public void setArgs(String args) {
+		this.args = args;
 	}
+
+	// dans le dossier c:\\ qui est le dossier en cours il y a un repertoire affichï¿½
+	// par dir, et dirng
 
 }
 
 /*
- * ajouter la commande "CD" qui permet de se déplacer dans un répertoire qui existe dans le dossier en cours. : dir : affiche le contenu du repertoire
+ * ajouter la commande "CD" qui permet de se dï¿½placer dans un rï¿½pertoire qui
+ * existe dans le dossier en cours. : dir : affiche le contenu du repertoire
  * 
-    le dossier en cours est la racine par défaut : c:\
-    
-    pour remonter dans le dossier parent utiliser ".." comme paramètre.
-    la commande pwd est impacté !!! pwd affiche le dossier courant !!
-    les commandes dir et dirng sont aussi impactées
-    exemple :
-    > pwd 
-    C:\
-    > dir
-    <DIR> temp
-    > cd temp
-    > pwd
-    c:\temp
-    > dir
-    <DIR> d1
-    <DIR> d2
-    > cd ..
-    > pwd
-    c:\
-    > cd blibli
-    Le chemin d’accès spécifié est introuvable.
-    > cd .
-    > pwd
-    c:\ 
-*/
+ * le dossier en cours est la racine par dï¿½faut : c:\
+ * 
+ * pour remonter dans le dossier parent utiliser ".." comme paramï¿½tre. la
+ * commande pwd est impactï¿½ !!! pwd affiche le dossier courant !! les commandes
+ * dir et dirng sont aussi impactï¿½es exemple : > pwd C:\ > dir <DIR> temp > cd
+ * temp > pwd c:\temp > dir <DIR> d1 <DIR> d2 > cd .. > pwd c:\ > cd blibli Le
+ * chemin dï¿½accï¿½s spï¿½cifiï¿½ est introuvable. > cd . > pwd c:\
+ */
