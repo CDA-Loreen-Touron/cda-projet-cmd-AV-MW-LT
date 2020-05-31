@@ -1,6 +1,6 @@
 package models;
 
-public class Help extends Commande {
+public final class Help extends Commande {
 	
 
 	public Help(String pNom) {

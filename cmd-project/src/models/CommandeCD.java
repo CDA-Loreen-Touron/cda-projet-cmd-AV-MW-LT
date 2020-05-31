@@ -1,11 +1,20 @@
 package models;
 
+import java.util.ArrayList;
+import java.util.Map;
+
 public class CommandeCD extends Commande {
 
-	
 	public CommandeCD(String pNom) {
 		super(pNom);
-	}
+	
+	
+	Map<String, String>vEnvironnementDuDossierC = System.getenv();
+	
+	for (Map.Entry<String, String>)
+	
+	
+	
 
 	
 	@Override
@@ -14,9 +23,9 @@ public class CommandeCD extends Commande {
 		
 	}
 	
-	//dans le dossier c:\\ qui est le dossier en cours il y a un repertoire affiché par dir, et dirng 
+	//dans le dossier c:\\ (qui est le dossier en cours) il y a un repertoire affiché par dir, et dirng 
 	
-	
+	}
 
 }
 
