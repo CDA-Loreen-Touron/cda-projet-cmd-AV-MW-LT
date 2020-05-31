@@ -1,6 +1,6 @@
 package models;
 
-public class Pwd extends Commande{
+public final class Pwd extends Commande{
 	
 	public Pwd (String pNom) {
 		super(pNom);

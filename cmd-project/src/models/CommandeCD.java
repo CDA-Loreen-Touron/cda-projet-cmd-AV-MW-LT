@@ -1,11 +1,24 @@
 package models;
 
-public class CommandeCD extends Commande {
+import java.util.ArrayList;
+import java.util.Map;
 
-	
+
+public final class CommandeCD extends Commande {
+
+	private static final CommandeCD commandeCd = new CommandeCD("cd");
+
 	public CommandeCD(String pNom) {
 		super(pNom);
-	}
+	
+	
+		File vFile = new File();
+		
+	
+	
+	
+	
+	
 
 	
 	@Override
@@ -14,9 +27,15 @@ public class CommandeCD extends Commande {
 		
 	}
 	
-	//dans le dossier c:\\ qui est le dossier en cours il y a un repertoire affiché par dir, et dirng 
+	//dans le dossier c:\\ (qui est le dossier en cours) il y a un repertoire affiché par dir, et dirng 
 	
-	
+	}
+
+	@Override
+	public void executer() {
+		// TODO Auto-generated method stub
+		
+	}
 
 }
 
