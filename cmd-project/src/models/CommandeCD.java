@@ -3,15 +3,19 @@ package models;
 import java.util.ArrayList;
 import java.util.Map;
 
-public class CommandeCD extends Commande {
+
+public final class CommandeCD extends Commande {
+
+	private static final CommandeCD commandeCd = new CommandeCD("cd");
 
 	public CommandeCD(String pNom) {
 		super(pNom);
 	
 	
-	Map<String, String>vEnvironnementDuDossierC = System.getenv();
+		File vFile = new File();
+		
 	
-	for (Map.Entry<String, String>)
+	
 	
 	
 	
@@ -25,6 +29,12 @@ public class CommandeCD extends Commande {
 	
 	//dans le dossier c:\\ (qui est le dossier en cours) il y a un repertoire affiché par dir, et dirng 
 	
+	}
+
+	@Override
+	public void executer() {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

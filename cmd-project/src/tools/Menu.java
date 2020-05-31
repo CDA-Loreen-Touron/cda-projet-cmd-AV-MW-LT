@@ -1,5 +1,6 @@
 package tools;
 
+import models.CommandeCD;
 import models.CommandeCat;
 import models.CommandeCrf;
 import models.CommandeIsPrime;
@@ -15,6 +16,7 @@ public final class Menu {
 	private static final Hystory historique = new Hystory("historique");
 	private static final CommandeCat commandeCat = new CommandeCat("cat");
 	private static final CommandeCrf commandeCrf = new CommandeCrf("crf");
+	private static final CommandeCD commandeCd = new CommandeCD("cd");
 	private static String currentDir = "";
 	private static String params = "";
 
