@@ -14,5 +14,5 @@ public class Help extends Commande {
 
 }
 
-// si la commande est égale à "help" afficher le message "Bonjour sur la console cda
+// si la commande est ï¿½gale ï¿½ "help" afficher le message "Bonjour sur la console cda
 //La commande "Help" doit afficher une description pour chaque commande

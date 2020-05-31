@@ -12,7 +12,15 @@ public class CommandeCD extends Commande {
 
 	public CommandeCD(String pNom) {
 		super(pNom);
-	}
+	
+	
+		File vFile = new File();
+		
+	
+	
+	
+	
+	
 
 	@Override
 	public void executer() {
@@ -27,7 +35,7 @@ public class CommandeCD extends Commande {
 					Menu.setCurrentDir(Menu.getCurrentDir().substring(0, lastBackSlash));
 				}
 			}else {
-				System.out.println("Le chemin d’accès spécifié est introuvable");
+				System.out.println("Le chemin dï¿½accï¿½s spï¿½cifiï¿½ est introuvable");
 			}
 		} else {
 			
@@ -36,7 +44,7 @@ public class CommandeCD extends Commande {
 			if (directory.isDirectory()) {
 				Menu.setCurrentDir(Menu.getCurrentDir() + "\\" + args);
 			} else {
-				System.out.println("Le chemin d’accès spécifié est introuvable");
+				System.out.println("Le chemin dï¿½accï¿½s spï¿½cifiï¿½ est introuvable");
 			}
 		}
 
@@ -46,20 +54,20 @@ public class CommandeCD extends Commande {
 		this.args = args;
 	}
 
-	// dans le dossier c:\\ qui est le dossier en cours il y a un repertoire affiché
+	// dans le dossier c:\\ qui est le dossier en cours il y a un repertoire affichï¿½
 	// par dir, et dirng
 
 }
 
 /*
- * ajouter la commande "CD" qui permet de se déplacer dans un répertoire qui
+ * ajouter la commande "CD" qui permet de se dï¿½placer dans un rï¿½pertoire qui
  * existe dans le dossier en cours. : dir : affiche le contenu du repertoire
  * 
- * le dossier en cours est la racine par défaut : c:\
+ * le dossier en cours est la racine par dï¿½faut : c:\
  * 
- * pour remonter dans le dossier parent utiliser ".." comme paramètre. la
- * commande pwd est impacté !!! pwd affiche le dossier courant !! les commandes
- * dir et dirng sont aussi impactées exemple : > pwd C:\ > dir <DIR> temp > cd
+ * pour remonter dans le dossier parent utiliser ".." comme paramï¿½tre. la
+ * commande pwd est impactï¿½ !!! pwd affiche le dossier courant !! les commandes
+ * dir et dirng sont aussi impactï¿½es exemple : > pwd C:\ > dir <DIR> temp > cd
  * temp > pwd c:\temp > dir <DIR> d1 <DIR> d2 > cd .. > pwd c:\ > cd blibli Le
- * chemin d’accès spécifié est introuvable. > cd . > pwd c:\
+ * chemin dï¿½accï¿½s spï¿½cifiï¿½ est introuvable. > cd . > pwd c:\
  */

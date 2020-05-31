@@ -48,7 +48,7 @@ public final class Menu {
 				Help help = new Help("help");
 				help.executer();
 				break;
-			case "exit":// le programme s'arrete, n'a plus de possibilité d'écrire, le programme se
+			case "exit":// le programme s'arrete, n'a plus de possibilitï¿½ d'ï¿½crire, le programme se
 						// ferme, on sort du while
 				verif = true;
 				System.out.println("Merci au revoir");
@@ -107,7 +107,7 @@ public final class Menu {
 					commandeCat.executer();
 
 				} else {
-					System.out.println("Cette commande prend un paramètre !");
+					System.out.println("Cette commande prend un paramï¿½tre !");
 				}
 
 				break;
@@ -122,7 +122,7 @@ public final class Menu {
 					commandeCrf.executer();
 
 				} else {
-					System.out.println("Cette commande prend un paramètre !");
+					System.out.println("Cette commande prend un paramï¿½tre !");
 				}
 
 				break;
