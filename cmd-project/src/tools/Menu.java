@@ -62,7 +62,7 @@ public final class Menu {
 				System.out.println("Merci au revoir");
 				break;
 			case "river":
-				historique.ajouterElementList("river");
+				historique.ajouterElementList("river" +params);
 
 				CommandeRiver river = new CommandeRiver(null);
 				river.setParam(params);
@@ -70,7 +70,7 @@ public final class Menu {
 				river.executer();
 				break;
 			case "isprime":
-				historique.ajouterElementList("isprime");
+				historique.ajouterElementList("isprime" +params);
 				CommandeIsPrime a = new CommandeIsPrime(null);
 				a.setParam(params);
 				a.executer();
@@ -91,7 +91,7 @@ public final class Menu {
 			case "cd":
 
 				if (indice != -1) {
-					historique.ajouterElementList("cd");
+					historique.ajouterElementList("cd" +params);
 					commandeCd.setArgs(params);
 					commandeCd.executer();
 				}
@@ -103,6 +103,7 @@ public final class Menu {
 				break;
 			case "cat":
 				if (indice != -1) {
+					historique.ajouterElementList("cd" +params);
 					commandeCat.setParams(currentDir + "\\" + params);
 					commandeCat.executer();
 
@@ -112,12 +113,12 @@ public final class Menu {
 
 				break;
 			case "copy":
-				historique.ajouterElementList("copy");
+				historique.ajouterElementList("copy" +params);
 				System.out.println("Commande en cours de dev");
 				break;
 			case "crf":
 				if (indice != -1) {
-					historique.ajouterElementList("crf");
+					historique.ajouterElementList("crf" +params);
 					commandeCrf.setParams(currentDir + "\\" + params);
 					commandeCrf.executer();
 
@@ -127,7 +128,7 @@ public final class Menu {
 
 				break;
 			case "crd":
-				historique.ajouterElementList("crd");
+				historique.ajouterElementList("crd" +params);
 				System.out.println("Commande en cours de dev");
 				break;
 			default:
