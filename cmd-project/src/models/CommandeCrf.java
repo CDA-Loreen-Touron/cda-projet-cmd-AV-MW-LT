@@ -4,7 +4,7 @@ import java.io.File;
 import java.io.IOException;
 
 public final class CommandeCrf extends Commande {
-	
+
 	public CommandeCrf(String pNom) {
 		super(pNom);
 	}
@@ -14,26 +14,29 @@ public final class CommandeCrf extends Commande {
 	@Override
 	public void executer() {
 		File file = new File(params);
-		
-		if(!file.exists()) {
+
+		if (!file.exists()) {
 			try {
 				file.createNewFile();
 				System.out.println("Fichier créé !");
 			} catch (IOException e) {
 				System.out.println("Erreur lors de la creation ");
 			}
-			
-		}else {
+
+		} else {
 			System.out.println("Fichier déjà présent !");
+<<<<<<< HEAD
 		}	
+=======
+		}
+
+>>>>>>> 9c40d50e4674ef57c39ab366d67efd971dcfcb3d
 	}
 	
 
 	public void setParams(String argument) {
 		this.params = argument;
 	}
-	
-	
 
 }
 /*

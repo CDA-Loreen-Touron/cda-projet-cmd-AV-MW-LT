@@ -1,16 +1,14 @@
 package models;
 
-public final class Pwd extends Commande{
-	
-	public Pwd (String pNom) {
+public class Pwd extends Commande {
+
+	public Pwd(String pNom) {
 		super(pNom);
 	}
 
 	@Override
 	public void executer() {
-		System.out.println("Commande pas encore implémentée");
+		System.out.println("Commande pas encore implï¿½mentï¿½e");
 	}
-	
-	
 
 }
