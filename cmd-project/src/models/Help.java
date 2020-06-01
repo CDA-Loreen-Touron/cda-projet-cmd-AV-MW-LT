@@ -4,7 +4,7 @@ public class Help extends Commande {
 
 	public Help(String pNom) {
 		super(pNom);
-		// TODO Auto-generated constructor stub
+
 	}
 
 	@Override
