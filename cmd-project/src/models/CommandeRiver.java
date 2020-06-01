@@ -47,7 +47,7 @@ public final class CommandeRiver extends Commande {
 					}
 				}
 			}
-			System.out.println("Les rivières se croisent en " + a);
+			System.out.println("Les riviÃ¨res se croisent en " + a);
 		} catch (Exception e) {
 			System.out.println("Saisie incorrecte.");
 		}
