@@ -1,6 +1,6 @@
 package tools;
 
-//import models.CommandeCD;
+import models.CommandeCD;
 import models.CommandeCRD;
 import models.CommandeCat;
 import models.CommandeCrf;
@@ -19,11 +19,9 @@ public final class Menu {
 	private static final Hystory historique = new Hystory("historique");
 	private static final CommandeCat commandeCat = new CommandeCat("cat");
 	private static final CommandeCrf commandeCrf = new CommandeCrf("crf");
-<<<<<<< HEAD
-	//private static final CommandeCD commandeCd = new CommandeCD("cd");
+
 	private static final CommandeCRD commandeCRD = new CommandeCRD("crd");
-	private static String currentDir = "";
-=======
+
 	private static final CommandeCD commandeCd = new CommandeCD("cd");
 	private static String currentDir = "c:\\";
 	private static final CommandeDir commandeDir = new CommandeDir("dir");
@@ -37,17 +35,13 @@ public final class Menu {
 		Menu.currentDir = currentDir;
 	}
 
->>>>>>> 9c40d50e4674ef57c39ab366d67efd971dcfcb3d
+
 	private static String params = "";
 
 	public static void menu() {
 
 		while (!verif) {
-<<<<<<< HEAD
 
-			currentDir = System.getProperty("user.dir");//repertoire en cours
-=======
->>>>>>> 9c40d50e4674ef57c39ab366d67efd971dcfcb3d
 			System.out.println(currentDir);
 
 			String choix = EntreeClavier.lireString();
@@ -144,20 +138,15 @@ public final class Menu {
 
 				break;
 			case "crd":
-<<<<<<< HEAD
 				if (indice != -1) {
 					historique.ajouterElementList("crd");
 					commandeCRD.setParams(currentDir + "/" + params);
 					commandeCRD.executer();
 
 				} else {
-					System.out.println("Cette commande prend un paramètre !");
+					System.out.println("Cette commande prend un paramï¿½tre !");
 				}
 
-=======
-				historique.ajouterElementList("crd" +params);
-				System.out.println("Commande en cours de dev");
->>>>>>> 9c40d50e4674ef57c39ab366d67efd971dcfcb3d
 				break;
 			default:
 				System.out.println("Commande inconnus");
