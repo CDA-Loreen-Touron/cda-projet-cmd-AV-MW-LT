@@ -33,7 +33,7 @@ public final class CommandeCat extends Commande {
 						this.params = "";
 					}
 
-				} while (verif);
+				} while (verif); 
 			} catch (Exception e) {
 				System.out.println("Erreur lors de la lecture du fichier");
 			}
