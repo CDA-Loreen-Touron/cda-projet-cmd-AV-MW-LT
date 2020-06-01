@@ -15,24 +15,20 @@ import models.Pwd;
 public final class Menu {
 
 	private static boolean verif;// false par defaut
-
 	private static final Hystory historique = new Hystory("historique");
 	private static final CommandeCat commandeCat = new CommandeCat("cat");
 	private static final CommandeCrf commandeCrf = new CommandeCrf("crf");
-
 	private static final CommandeCRD commandeCRD = new CommandeCRD("crd");
-
 	private static final CommandeCD commandeCd = new CommandeCD("cd");
 	private static String currentDir = "c:\\";
 	private static final CommandeDir commandeDir = new CommandeDir("dir");
 	private static final CommandeDirng commandeDirng = new CommandeDirng("dirng");
-
 	public static String getCurrentDir() {
 		return currentDir;
 	}  
 
 	public static void setCurrentDir(String currentDir) {
-		Menu.currentDir = currentDir;
+		Menu.currentDir = currentDir; 
 	}
 
 
