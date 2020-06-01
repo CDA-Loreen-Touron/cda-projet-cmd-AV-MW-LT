@@ -18,7 +18,7 @@ public final class CommandeIsPrime extends Commande {
 
 		try {
 			int i = Integer.parseInt(param);
-			if(i<1) {
+			if (i < 1) {
 				System.out.println("Paramètre négatif");
 			}
 
@@ -37,13 +37,13 @@ public final class CommandeIsPrime extends Commande {
 			}
 		} catch (Exception e) {
 			System.out.println("Erreure de saisie de la commande isprime.");
-			System.out.println("Exemple : isprime 11");	
+			System.out.println("Exemple : isprime 11");
 		}
 
 	}
 
 	public void setParam(String pParam) {
 		this.param = pParam.trim();
-		
+
 	}
 }

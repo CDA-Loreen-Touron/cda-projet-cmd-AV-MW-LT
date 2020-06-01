@@ -1,8 +1,8 @@
 package tools;
 
+import models.CommandeCD;
 import models.CommandeCat;
 import models.CommandeCrf;
-import models.CommandeDir;
 import models.CommandeIsPrime;
 import models.CommandeRiver;
 import models.Help;
@@ -16,20 +16,29 @@ public final class Menu {
 	private static final Hystory historique = new Hystory("historique");
 	private static final CommandeCat commandeCat = new CommandeCat("cat");
 	private static final CommandeCrf commandeCrf = new CommandeCrf("crf");
-	private static final CommandeDir commandeDir = new CommandeDir("dir");
-	private static String currentDir = "";
+	private static final CommandeCD commandeCd = new CommandeCD("cd");
+	private static String currentDir = "c:\\";
+
+	public static String getCurrentDir() {
+		return currentDir;
+	}  
+
+	public static void setCurrentDir(String currentDir) {
+		Menu.currentDir = currentDir;
+	}
+
 	private static String params = "";
 
 	public static void menu() {
 
 		while (!verif) {
-
-			currentDir = System.getProperty("user.dir");
 			System.out.println(currentDir);
+
 			String choix = EntreeClavier.lireString();
 			int indice = choix.indexOf(" ");
 			if (indice != -1) {
 				params = choix.substring(indice + 1);
+				params = params.trim();
 				choix = choix.substring(0, indice);
 			}
 
@@ -55,12 +64,10 @@ public final class Menu {
 			case "river":
 				historique.ajouterElementList("river");
 				CommandeRiver river = new CommandeRiver(null);
-				river.setParam(params);
-
 				river.executer();
 				break;
 			case "isprime":
-				historique.ajouterElementList("isprime");
+				historique.ajouterElementList("isprime" +params);
 				CommandeIsPrime a = new CommandeIsPrime(null);
 				a.setParam(params);
 				a.executer();
@@ -73,16 +80,19 @@ public final class Menu {
 				break;
 			case "dir":
 				historique.ajouterElementList("dir");
-				commandeDir.setParams(currentDir );
-				commandeDir.executer();
 				break;
 			case "dirng":
 				historique.ajouterElementList("dirng");
 				System.out.println("Commande en cours de dev");
 				break;
 			case "cd":
-				historique.ajouterElementList("cd");
-				System.out.println("Commande en cours de dev");
+
+				if (indice != -1) {
+					historique.ajouterElementList("cd" +params);
+					commandeCd.setArgs(params);
+					commandeCd.executer();
+				}
+
 				break;
 			case "find":
 				historique.ajouterElementList("find");
@@ -90,7 +100,8 @@ public final class Menu {
 				break;
 			case "cat":
 				if (indice != -1) {
-					commandeCat.setParams(currentDir + "/" + params);
+					historique.ajouterElementList("cd" +params);
+					commandeCat.setParams(currentDir + "\\" + params);
 					commandeCat.executer();
 
 				} else {
@@ -99,13 +110,13 @@ public final class Menu {
 
 				break;
 			case "copy":
-				historique.ajouterElementList("copy");
+				historique.ajouterElementList("copy" +params);
 				System.out.println("Commande en cours de dev");
 				break;
 			case "crf":
 				if (indice != -1) {
-					historique.ajouterElementList("crf");
-					commandeCrf.setParams(currentDir + "/" + params);
+					historique.ajouterElementList("crf" +params);
+					commandeCrf.setParams(currentDir + "\\" + params);
 					commandeCrf.executer();
 
 				} else {
@@ -114,7 +125,7 @@ public final class Menu {
 
 				break;
 			case "crd":
-				historique.ajouterElementList("crd");
+				historique.ajouterElementList("crd" +params);
 				System.out.println("Commande en cours de dev");
 				break;
 			default:
