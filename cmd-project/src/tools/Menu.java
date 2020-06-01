@@ -3,6 +3,8 @@ package tools;
 import models.CommandeCD;
 import models.CommandeCat;
 import models.CommandeCrf;
+import models.CommandeDir;
+import models.CommandeDirng;
 import models.CommandeIsPrime;
 import models.CommandeRiver;
 import models.Help;
@@ -18,6 +20,8 @@ public final class Menu {
 	private static final CommandeCrf commandeCrf = new CommandeCrf("crf");
 	private static final CommandeCD commandeCd = new CommandeCD("cd");
 	private static String currentDir = "c:\\";
+	private static final CommandeDir commandeDir = new CommandeDir("dir");
+	private static final CommandeDirng commandeDirng = new CommandeDirng("dirng");
 
 	public static String getCurrentDir() {
 		return currentDir;
@@ -80,10 +84,13 @@ public final class Menu {
 				break;
 			case "dir":
 				historique.ajouterElementList("dir");
+				commandeDir.setParams(currentDir);
+				commandeDir.executer();
 				break;
 			case "dirng":
 				historique.ajouterElementList("dirng");
-				System.out.println("Commande en cours de dev");
+				commandeDirng.setParams(currentDir);
+				commandeDirng.executer();
 				break;
 			case "cd":
 
