@@ -2,6 +2,7 @@ package tools;
 
 import models.CommandeCat;
 import models.CommandeCrf;
+import models.CommandeDir;
 import models.CommandeIsPrime;
 import models.CommandeRiver;
 import models.Help;
@@ -15,6 +16,7 @@ public final class Menu {
 	private static final Hystory historique = new Hystory("historique");
 	private static final CommandeCat commandeCat = new CommandeCat("cat");
 	private static final CommandeCrf commandeCrf = new CommandeCrf("crf");
+	private static final CommandeDir commandeDir = new CommandeDir("dir");
 	private static String currentDir = "";
 	private static String params = "";
 
@@ -37,7 +39,7 @@ public final class Menu {
 				Help help = new Help("help");
 				help.executer();
 				break;
-			case "exit":// le programme s'arrete, n'a plus de possibilité d'écrire, le programme se
+			case "exit":// le programme s'arrete, n'a plus de possibilitï¿½ d'ï¿½crire, le programme se
 						// ferme, on sort du while
 				verif = true;
 				System.out.println("Merci au revoir");
@@ -52,7 +54,6 @@ public final class Menu {
 				break;
 			case "river":
 				historique.ajouterElementList("river");
-
 				CommandeRiver river = new CommandeRiver(null);
 				river.setParam(params);
 
@@ -71,7 +72,9 @@ public final class Menu {
 				historique.clear();
 				break;
 			case "dir":
-				System.out.println("Commande en cours de dev");
+				historique.ajouterElementList("dir");
+				commandeDir.setParams(currentDir );
+				commandeDir.executer();
 				break;
 			case "dirng":
 				historique.ajouterElementList("dirng");
@@ -91,7 +94,7 @@ public final class Menu {
 					commandeCat.executer();
 
 				} else {
-					System.out.println("Cette commande prend un paramètre !");
+					System.out.println("Cette commande prend un paramï¿½tre !");
 				}
 
 				break;
@@ -106,7 +109,7 @@ public final class Menu {
 					commandeCrf.executer();
 
 				} else {
-					System.out.println("Cette commande prend un paramètre !");
+					System.out.println("Cette commande prend un paramï¿½tre !");
 				}
 
 				break;

@@ -24,7 +24,7 @@ public final class CommandeIsPrime extends Commande {
 
 			for (int j = 2; j < i; j++) {
 				if (i % j == 0) {
-					isPrime = false;
+					isPrime = false; 
 					break;
 				} else {
 					isPrime = true;
