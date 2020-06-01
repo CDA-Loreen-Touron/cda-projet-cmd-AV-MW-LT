@@ -65,10 +65,14 @@ public final class Menu {
 				verif = true;
 				System.out.println("Merci au revoir");
 				break;
+				
+				
 			case "pwd":
 				Pwd pwd = new Pwd("PWD");
 				pwd.executer();
 				break;
+				
+				
 			case "quit":// le programme s'arrete
 				verif = true;
 				System.out.println("Merci au revoir");
