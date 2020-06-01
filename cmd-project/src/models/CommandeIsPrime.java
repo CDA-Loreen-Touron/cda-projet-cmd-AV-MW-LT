@@ -17,7 +17,7 @@ public final class CommandeIsPrime extends Commande {
 	public void executer() {
 
 		try {
-			int i = Integer.parseInt(param);
+			int i = Integer.parseInt(param);//convertir en int
 			if(i<1) {
 				System.out.println("Paramètre négatif");
 			}

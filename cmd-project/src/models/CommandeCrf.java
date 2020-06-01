@@ -18,16 +18,16 @@ public final class CommandeCrf extends Commande {
 		if(!file.exists()) {
 			try {
 				file.createNewFile();
-				System.out.println("Fichier créer !");
+				System.out.println("Fichier créé !");
 			} catch (IOException e) {
 				System.out.println("Erreur lors de la creation ");
 			}
 			
 		}else {
 			System.out.println("Fichier déjà présent !");
-		}
-		
+		}	
 	}
+	
 
 	public void setParams(String argument) {
 		this.params = argument;
@@ -36,3 +36,14 @@ public final class CommandeCrf extends Commande {
 	
 
 }
+/*
+ajouter la commande "CRF" qui prend un paramètre et crée un fichier avec ce nom dans le répertoire en cours 
+(répertoire en cours == le chemin qu'affiche la commande pwd)
+> dir
+ <DIR>  rep1
+        f1.txt
+> crf f2.txt
+> dir
+ <DIR>  rep1
+        f1.txt
+        f2.txt*/

@@ -1,6 +1,7 @@
 package tools;
 
-import models.CommandeCD;
+//import models.CommandeCD;
+import models.CommandeCRD;
 import models.CommandeCat;
 import models.CommandeCrf;
 import models.CommandeIsPrime;
@@ -16,7 +17,8 @@ public final class Menu {
 	private static final Hystory historique = new Hystory("historique");
 	private static final CommandeCat commandeCat = new CommandeCat("cat");
 	private static final CommandeCrf commandeCrf = new CommandeCrf("crf");
-	private static final CommandeCD commandeCd = new CommandeCD("cd");
+	//private static final CommandeCD commandeCd = new CommandeCD("cd");
+	private static final CommandeCRD commandeCRD = new CommandeCRD("crd");
 	private static String currentDir = "";
 	private static String params = "";
 
@@ -24,7 +26,7 @@ public final class Menu {
 
 		while (!verif) {
 
-			currentDir = System.getProperty("user.dir");
+			currentDir = System.getProperty("user.dir");//repertoire en cours
 			System.out.println(currentDir);
 			String choix = EntreeClavier.lireString();
 			int indice = choix.indexOf(" ");
@@ -33,7 +35,7 @@ public final class Menu {
 				choix = choix.substring(0, indice);
 			}
 
-			switch (choix.toLowerCase()) {
+			switch (choix.toLowerCase()) {//The method toLowerCase() converts the characters of a String into lower case characters
 
 			case "help":
 				Help help = new Help("help");
@@ -113,8 +115,15 @@ public final class Menu {
 
 				break;
 			case "crd":
-				historique.ajouterElementList("crd");
-				System.out.println("Commande en cours de dev");
+				if (indice != -1) {
+					historique.ajouterElementList("crd");
+					commandeCRD.setParams(currentDir + "/" + params);
+					commandeCRD.executer();
+
+				} else {
+					System.out.println("Cette commande prend un paramètre !");
+				}
+
 				break;
 			default:
 				System.out.println("Commande inconnus");

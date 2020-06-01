@@ -3,7 +3,7 @@ package models;
 import java.util.ArrayList;
 import java.util.Map;
 
-
+/*
 public final class CommandeCD extends Commande {
 
 	private static final CommandeCD commandeCd = new CommandeCD("cd");
@@ -12,7 +12,7 @@ public final class CommandeCD extends Commande {
 		super(pNom);
 	
 	
-		File vFile = new File();
+		//File vFile = new File();
 		
 	
 	
@@ -21,7 +21,7 @@ public final class CommandeCD extends Commande {
 	
 
 	
-	@Override
+	/*@Override
 	public void executer() {
 		// TODO Auto-generated method stub
 		
