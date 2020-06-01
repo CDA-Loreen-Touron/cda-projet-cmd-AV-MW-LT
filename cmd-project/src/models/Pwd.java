@@ -8,7 +8,7 @@ public class Pwd extends Commande {
 
 	@Override
 	public void executer() {
-		System.out.println("Commande pas encore impl�ment�e");
+		System.out.println("Commande pas encore implémentée");
 	}
 
 }
