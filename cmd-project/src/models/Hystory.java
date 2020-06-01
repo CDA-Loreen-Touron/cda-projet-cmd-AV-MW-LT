@@ -31,7 +31,7 @@ public final class Hystory extends Commande {
 		LocalDateTime ldt = LocalDateTime.now();
 		DateTimeFormatter dtfH = DateTimeFormatter.ofPattern("HH:mm:ss");
 		DateTimeFormatter dtfD = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-		String y = String.format(" commande :%s utilisée à %s le %s ", pCommande, ldt.format(dtfH), ldt.format(dtfD));
+		String y = String.format(" commande :%s utilisÃ©e Ã  %s le %s ", pCommande, ldt.format(dtfH), ldt.format(dtfD));
 		this.historique.add(y);
 
 	}
