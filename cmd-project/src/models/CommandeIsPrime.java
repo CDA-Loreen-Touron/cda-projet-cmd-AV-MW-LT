@@ -48,4 +48,10 @@ public final class CommandeIsPrime extends Commande {
 		this.param = pParam.trim();
 
 	}
+
+	@Override
+	public void executer(String pParams) {
+		// TODO Auto-generated method stub
+		
+	}
 }

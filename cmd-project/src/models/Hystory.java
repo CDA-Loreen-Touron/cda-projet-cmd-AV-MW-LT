@@ -40,4 +40,10 @@ public final class Hystory extends Commande {
 		this.historique.clear();
 	}
 
+	@Override
+	public void executer(String pParams) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

@@ -31,20 +31,36 @@ public class CommandeCD extends Commande {
 				System.out.println("Le chemin d'accès spécifié est introuvable");
 			}
 		} else {
+			if (!Menu.getCurrentDir().equals("C:\\")) {
+				File directory = new File(Menu.getCurrentDir() + "\\" + args);
 
-			File directory = new File(Menu.getCurrentDir() + "\\" + args);
+				if (directory.isDirectory()) {
+					Menu.setCurrentDir(Menu.getCurrentDir() + "\\" + args);
+				} else {
+					System.out.println("Le chemin d'accès spécifié est introuvable");
+				}
+			}else {
+				File directory = new File(Menu.getCurrentDir() + args);
 
-			if (directory.isDirectory()) {
-				Menu.setCurrentDir(Menu.getCurrentDir() + "\\" + args);
-			} else {
-				System.out.println("Le chemin d'accès spécifié est introuvable");
+				if (directory.isDirectory()) {
+					Menu.setCurrentDir(Menu.getCurrentDir() + args);
+				} else {
+					System.out.println("Le chemin d'accès spécifié est introuvable");
+				}
 			}
+			
 		}
 
 	}
 
 	public void setArgs(String args) {
 		this.args = args;
+	}
+
+	@Override
+	public void executer(String pParams) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }
