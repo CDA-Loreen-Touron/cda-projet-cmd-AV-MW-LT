@@ -18,7 +18,7 @@ public class CommandeCD extends Commande {
 	@Override
 
 	public void executer() {
-		Pattern p = Pattern.compile("\\W{1,}");
+		Pattern p = Pattern.compile("^\\W{1,}$");
 		Matcher m = p.matcher(args);
 
 		if (m.find()) {
