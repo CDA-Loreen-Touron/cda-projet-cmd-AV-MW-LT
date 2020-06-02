@@ -50,5 +50,11 @@ public final class CommandeIsPrime extends Commande {
 
 	}
 
+	@Override
+	public void executer(String pParams) {
+		// TODO Auto-generated method stub
+		
+	}
+
 	
 }

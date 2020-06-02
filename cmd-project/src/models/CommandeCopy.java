@@ -13,12 +13,13 @@ import tools.Menu;
 
 public final class CommandeCopy extends Commande {
 
+	public CommandeCopy(String pNom, String pDescription) {
+		super(pNom, pDescription);
+		// TODO Auto-generated constructor stub
+	}
+
 	private String param = "";
 
-	public CommandeCopy(String pNom) {
-		super(pNom);
-
-	}
 
 	@Override
 	public void executer() {

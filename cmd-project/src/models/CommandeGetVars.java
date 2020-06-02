@@ -5,11 +5,14 @@ import java.util.Properties;
 
 public final class CommandeGetVars extends Commande {
 
+	public CommandeGetVars(String pNom, String pDescription) {
+		super(pNom, pDescription);
+
+	}
+
 	private String param = "";
 
-	public CommandeGetVars(String pNom) {
-		super(pNom);
-	}
+	
 
 	@Override
 	public void executer() {
