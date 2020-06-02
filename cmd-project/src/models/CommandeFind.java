@@ -4,15 +4,12 @@ import java.io.File;
 
 public class CommandeFind extends Commande {
 
-
-
 	public CommandeFind(String pNom, String pDescription) {
 		super(pNom, pDescription);
 
 	}
 
 	private byte option;
-	private boolean ordre;
 
 	private String[] params;
 	private int compteur;
@@ -44,7 +41,7 @@ public class CommandeFind extends Commande {
 					}
 				}
 				if (pParams.charAt(i + 1) == 'e') {
-					if (!e ) {
+					if (!e) {
 						e = true;
 						debutIndE = i;
 						if (finaleIndS == pParams.length() && debutIndE != 0) {
@@ -68,7 +65,7 @@ public class CommandeFind extends Commande {
 		this.compteur = 0;
 
 		if (pParams.contains("-starts") && pParams.contains("-ends")) {
-			pParams =refactorString3000(pParams);
+			pParams = refactorString3000(pParams);
 			option = 1;
 			for (int i = 0; i < pParams.length(); i++) {
 
@@ -76,7 +73,7 @@ public class CommandeFind extends Commande {
 
 			int indice = pParams.indexOf('-');
 			if (pParams.charAt(indice + 1) == 's') {
-				ordre = true;
+
 			}
 			this.params = pParams.replace("-starts", "/").replace("-ends", "/").replace(" ", "").split("/");
 
@@ -98,9 +95,8 @@ public class CommandeFind extends Commande {
 	private boolean getFileFiltred(byte pOption, String pName) {
 		switch (pOption) {
 		case 1:
-			
-				return pName.startsWith(params[1]) && pName.endsWith(params[2]);
-			
+
+			return pName.startsWith(params[1]) && pName.endsWith(params[2]);
 
 		case 2:
 

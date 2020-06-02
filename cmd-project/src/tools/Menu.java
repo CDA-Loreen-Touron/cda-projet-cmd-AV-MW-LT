@@ -20,7 +20,7 @@ public final class Menu {
 	private static HashMap<String, String> hm = new HashMap<>();
 
 	private static boolean verif;// false par defaut
-	private static String currentDir = "c:\\";
+	private static String currentDir = "";
 	private static final Help help = new Help("help", "Cette commande affiche une description pour chaque commande");
 	private static final CommandeIsPrime commandeIsPrime = new CommandeIsPrime("CommandeIsPrime",
 			"Cette commande prend en parametre un entier et affiche yes si ce parametre est un nombre premier non sinon");
@@ -57,6 +57,13 @@ public final class Menu {
 	private static String params = "";
 
 	public static void menu() {
+		
+		if(System.getProperty("cdi.default.folder")!=null) {
+			currentDir=System.getProperty("cdi.default.folder");
+		}else {
+			currentDir=System.getProperty("user.home");
+		}
+		
 		hm.put(commandeCat.getNom(), commandeCat.getDescription());
 		hm.put(commandeIsPrime.getNom(), commandeIsPrime.getDescription());
 		hm.put(commandeRiver.getNom(), commandeRiver.getDescription());

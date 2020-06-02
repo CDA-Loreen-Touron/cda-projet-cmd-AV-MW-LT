@@ -6,12 +6,12 @@ public final class CommandeDir extends Commande {
 
 	private String params = "";
 
-	private Boolean recursivePath = false;
+
 
 	public CommandeDir(String pNom, String pDescription, boolean subFolder) {
 		super(pNom, pDescription);
 		this.params = getParams();
-		this.recursivePath = subFolder;
+
 	}
 
 	public CommandeDir(String pNom, String pDescription) {
