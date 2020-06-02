@@ -19,19 +19,17 @@ public final class CommandeCrf extends Commande {
 		if (!file.exists()) {
 			try {
 				file.createNewFile();
-				System.out.println("Fichier cr�� !");
+				System.out.println("Fichier créé!");
 			} catch (IOException e) {
-				System.out.println("Erreur lors de la creation ");
+				System.out.println("Erreur lors de la création ");
 			}
 
 		} else {
-			System.out.println("Fichier d�j� pr�sent !");
-
-		}	
+			System.out.println("Fichier déjà présent !");
 
 		}
 
-	
+	}
 
 	public void setParams(String argument) {
 		this.params = argument;
