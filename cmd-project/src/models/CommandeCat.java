@@ -6,9 +6,9 @@ import java.io.FileReader;
 
 public final class CommandeCat extends Commande {
 
-	public CommandeCat(String pNom) {
-		super(pNom);
-
+	public CommandeCat(String pNom, String pDescription) {
+		super(pNom, pDescription);
+		
 	}
 
 	private String params;

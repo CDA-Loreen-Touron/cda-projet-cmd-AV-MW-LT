@@ -8,8 +8,8 @@ public final class CommandeIsPrime extends Commande {
 	private static boolean isPrime = true;
 	private String param = "";
 
-	public CommandeIsPrime(String pNom) {
-		super(pNom);
+	public CommandeIsPrime(String pNom, String pDescription) {
+		super(pNom, pDescription);
 	}
 
 	@Override
@@ -38,7 +38,7 @@ public final class CommandeIsPrime extends Commande {
 				System.out.println("FALSE");
 			}
 		} catch (Exception e) {
-			System.out.println("Erreure de saisie de la commande isprime.");
+			System.out.println("Erreur de saisie de la commande isprime.");
 			System.out.println("Exemple : isprime 11");
 		}
 
@@ -48,4 +48,6 @@ public final class CommandeIsPrime extends Commande {
 		this.param = pParam.trim();
 
 	}
+
+	
 }

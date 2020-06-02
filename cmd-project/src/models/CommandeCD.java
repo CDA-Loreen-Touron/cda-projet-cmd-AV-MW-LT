@@ -10,9 +10,9 @@ public class CommandeCD extends Commande {
 
 	private String args;
 
-	public CommandeCD(String pNom) {
-		super(pNom);
-
+	public CommandeCD(String pNom, String pDescription) {
+		super(pNom, pDescription);
+		
 	}
 
 	@Override

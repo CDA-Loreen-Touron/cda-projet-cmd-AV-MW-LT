@@ -6,11 +6,12 @@ import java.io.IOException;
 public class CommandeCRD extends Commande {
 
 	
-	public CommandeCRD(String pNom) {
-		super(pNom);
+	public CommandeCRD(String pNom, String pDescription) {
+		super(pNom, pDescription);
+		
 	}
 	
-	private String params = "C:\\Directory1";
+	private String params = "";
 
 	@Override
 	public void executer() {

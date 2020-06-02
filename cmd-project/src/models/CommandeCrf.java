@@ -5,8 +5,9 @@ import java.io.IOException;
 
 public final class CommandeCrf extends Commande {
 
-	public CommandeCrf(String pNom) {
-		super(pNom);
+	public CommandeCrf(String pNom, String pDescription) {
+		super(pNom, pDescription);
+		
 	}
 
 	private String params;
