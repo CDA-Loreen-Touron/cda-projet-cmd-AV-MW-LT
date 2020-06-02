@@ -29,7 +29,7 @@ public final class Menu {
 
 		while (!verif) {
 
-			System.out.println(currentDir);
+			
 
 			String choix = EntreeClavier.lireString();
 			int indice = choix.indexOf(" ");
@@ -53,8 +53,7 @@ public final class Menu {
 				
 				
 			case "pwd":
-//				Pwd pwd = new Pwd("PWD");
-//				pwd.executer();
+				System.out.println(currentDir);
 				break;
 				
 				
