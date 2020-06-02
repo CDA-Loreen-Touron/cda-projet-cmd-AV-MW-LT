@@ -53,8 +53,8 @@ public final class Menu {
 				
 				
 			case "pwd":
-				Pwd pwd = new Pwd("PWD");
-				pwd.executer();
+//				Pwd pwd = new Pwd("PWD");
+//				pwd.executer();
 				break;
 				
 				
