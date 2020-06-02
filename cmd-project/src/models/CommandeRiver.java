@@ -6,7 +6,6 @@ public final class CommandeRiver extends Commande {
 
 	public CommandeRiver(String pNom) {
 		super(pNom);
-
 	}
 
 	@Override
