@@ -1,16 +1,6 @@
 package tools;
 
-import models.CommandeCD;
-import models.CommandeCRD;
-import models.CommandeCat;
-import models.CommandeCrf;
-import models.CommandeDir;
-import models.CommandeDirng;
-import models.CommandeIsPrime;
-import models.CommandeRiver;
-import models.Help;
-import models.Hystory;
-import models.Pwd;
+import models.*;
 
 public final class Menu {
 
@@ -23,6 +13,7 @@ public final class Menu {
 	private static String currentDir = "c:\\";
 	private static final CommandeDir commandeDir = new CommandeDir("dir");
 	private static final CommandeDirng commandeDirng = new CommandeDirng("dirng");
+	private static final CommandeCopy commandeCopy= new CommandeCopy("copy");
 	public static String getCurrentDir() {
 		return currentDir;
 	}  
@@ -68,15 +59,23 @@ public final class Menu {
 				System.out.println("Merci au revoir");
 				break;
 			case "river":
+				if (indice != -1) {
 				historique.ajouterElementList("river");
 				CommandeRiver river = new CommandeRiver(null);
 				river.executer();
+				} else {
+					System.out.println("Cette commande prend un param�tre !");
+				}
 				break;
 			case "isprime":
+				if (indice != -1) {
 				historique.ajouterElementList("isprime" +params);
 				CommandeIsPrime a = new CommandeIsPrime(null);
 				a.setParam(params);
 				a.executer();
+				} else {
+					System.out.println("Cette commande prend un param�tre !");
+				}
 				break;
 			case "history":
 				historique.executer();
@@ -119,8 +118,13 @@ public final class Menu {
 
 				break;
 			case "copy":
+				if (indice != -1) {
 				historique.ajouterElementList("copy" +params);
-				System.out.println("Commande en cours de dev");
+				commandeCopy.setParam(currentDir + "\\" + params);
+				commandeCopy.executer();
+			} else {
+				System.out.println("Cette commande prend un param�tre !");
+			}
 				break;
 			case "crf":
 				if (indice != -1) {
@@ -129,7 +133,7 @@ public final class Menu {
 					commandeCrf.executer();
 
 				} else {
-					System.out.println("Cette commande prend un param�tre !");
+					System.out.println("Cette commande prend un paramètre !");
 				}
 
 				break;
@@ -140,7 +144,7 @@ public final class Menu {
 					commandeCRD.executer();
 
 				} else {
-					System.out.println("Cette commande prend un param�tre !");
+					System.out.println("Cette commande prend un paramètre !");
 				}
 
 				break;
