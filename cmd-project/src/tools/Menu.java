@@ -6,11 +6,11 @@ import models.CommandeCat;
 import models.CommandeCrf;
 import models.CommandeDir;
 import models.CommandeDirng;
+import models.CommandeFind;
 import models.CommandeIsPrime;
 import models.CommandeRiver;
 import models.Help;
 import models.Hystory;
-import models.Pwd;
 
 public final class Menu {
 
@@ -20,9 +20,10 @@ public final class Menu {
 	private static final CommandeCrf commandeCrf = new CommandeCrf("crf");
 	private static final CommandeCRD commandeCRD = new CommandeCRD("crd");
 	private static final CommandeCD commandeCd = new CommandeCD("cd");
-	private static String currentDir = "c:\\";
+	private static String currentDir = "C:\\";
 	private static final CommandeDir commandeDir = new CommandeDir("dir");
 	private static final CommandeDirng commandeDirng = new CommandeDirng("dirng");
+	private static final CommandeFind commandeFind = new CommandeFind("find");
 	public static String getCurrentDir() {
 		return currentDir;
 	}  
@@ -38,7 +39,7 @@ public final class Menu {
 
 		while (!verif) {
 
-			System.out.println(currentDir);
+			
 
 			String choix = EntreeClavier.lireString();
 			int indice = choix.indexOf(" ");
@@ -62,8 +63,7 @@ public final class Menu {
 				
 				
 			case "pwd":
-				Pwd pwd = new Pwd("PWD");
-				pwd.executer();
+				System.out.println(currentDir);
 				break;
 				
 				
@@ -109,7 +109,9 @@ public final class Menu {
 				break;
 			case "find":
 				historique.ajouterElementList("find");
-				System.out.println("Commande en cours de dev");
+				commandeFind.determineOption(params);
+				commandeFind.executer(currentDir);
+				commandeFind.getCompteur();
 				break;
 			case "cat":
 				if (indice != -1) {
