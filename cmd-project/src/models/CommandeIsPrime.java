@@ -21,8 +21,8 @@ public final class CommandeIsPrime extends Commande {
 			int i = Integer.parseInt(param);
 			if (i < 1) {
 
-				System.out.println("Paramètre négatif");
-			}
+				System.out.println("no");
+			}else {
 
 			for (int j = 2; j < i; j++) {
 				if (i % j == 0) {
@@ -33,9 +33,10 @@ public final class CommandeIsPrime extends Commande {
 				}
 			}
 			if (isPrime == true) {
-				System.out.println("TRUE");
+				System.out.println("yes");
 			} else {
-				System.out.println("FALSE");
+				System.out.println("no");
+			}
 			}
 		} catch (Exception e) {
 			System.out.println("Erreure de saisie de la commande isprime.");
