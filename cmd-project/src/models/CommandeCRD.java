@@ -35,4 +35,10 @@ public class CommandeCRD extends Commande {
 	public void setParams(String argument) {
 		this.params = argument;
 	}
+
+	@Override
+	public void executer(String pParams) {
+		// TODO Auto-generated method stub
+		
+	}
 }

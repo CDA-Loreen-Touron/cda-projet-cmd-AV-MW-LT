@@ -3,9 +3,12 @@ package tools;
 import models.CommandeCD;
 import models.CommandeCRD;
 import models.CommandeCat;
+import models.CommandeCopy;
 import models.CommandeCrf;
 import models.CommandeDir;
 import models.CommandeDirng;
+import models.CommandeFind;
+import models.CommandeGetVars;
 import models.CommandeIsPrime;
 import models.CommandeRiver;
 import models.Help;
@@ -36,14 +39,26 @@ public final class Menu {
 	private static final CommandeDirng commandeDirng = new CommandeDirng("dirng", "Cette commande affiche le contenu du r�pertoire en cours,exactement comme la commande dir, mais en plus affiche le nombre de r�pertoire et le nombre de fichier.");
 	//private static final CommandeGetVars commandeGetVars = new CommandeGetVars ("","");
 	
+	private static final Hystory historique = new Hystory("historique");
+	private static final CommandeCat commandeCat = new CommandeCat("cat");
+	private static final CommandeCrf commandeCrf = new CommandeCrf("crf");
+	private static final CommandeCRD commandeCRD = new CommandeCRD("crd");
+	private static final CommandeCD commandeCd = new CommandeCD("cd");
+	private static String currentDir = "C:\\";
+	private static final CommandeDir commandeDir = new CommandeDir("dir");
+	private static final CommandeDirng commandeDirng = new CommandeDirng("dirng");
+	private static final CommandeCopy commandeCopy= new CommandeCopy("copy");
+	private static final CommandeFind commandeFind = new CommandeFind("find");
+
+	private static final CommandeGetVars commandeGetVars = new CommandeGetVars("getvars");
+
 	public static String getCurrentDir() {
 		return currentDir;
-	}  
-
-	public static void setCurrentDir(String currentDir) {
-		Menu.currentDir = currentDir; 
 	}
 
+	public static void setCurrentDir(String currentDir) {
+		Menu.currentDir = currentDir;
+	}
 
 	private static String params = "";
 
@@ -64,17 +79,19 @@ public final class Menu {
 
 		while (!verif) {
 
-			System.out.println(currentDir);
+			
 
 			String choix = EntreeClavier.lireString();
 			int indice = choix.indexOf(" ");
 			if (indice != -1) {
 				params = choix.substring(indice + 1);
 				params = params.trim();
+
 				choix = choix.substring(0, indice);
 			}
 
-			switch (choix.toLowerCase()) {//The method toLowerCase() converts the characters of a String into lower case characters
+			switch (choix.toLowerCase()) {// The method toLowerCase() converts the characters of a String into lower
+											// case characters
 
 			case "help":
 				help.executer();
@@ -93,6 +110,11 @@ public final class Menu {
 				break;*/
 				
 				
+
+			case "pwd":
+				System.out.println(currentDir);
+				break;
+
 			case "quit":// le programme s'arrete
 				verif = true;
 				System.out.println("Merci au revoir");
@@ -117,6 +139,23 @@ public final class Menu {
 					System.out.println("Cette commande prend un param�tre !");
 				}
 				
+					historique.ajouterElementList("river");
+					CommandeRiver river = new CommandeRiver(null);
+					river.executer();
+				} else {
+					System.out.println("Cette commande prend un param�tre !");
+				}
+				break;
+			case "isprime":
+				if (indice != -1) {
+					historique.ajouterElementList("isprime" + params);
+					CommandeIsPrime a = new CommandeIsPrime(null);
+					a.setParam(params);
+					a.executer();
+				} else {
+					System.out.println("Cette commande prend un param�tre !");
+				}
+				break;
 			case "history":
 				historique.executer();
 				break;
@@ -140,7 +179,7 @@ public final class Menu {
 			case "cd":
 
 				if (indice != -1) {
-					historique.ajouterElementList("cd" +params);
+					historique.ajouterElementList("cd" + params);
 					commandeCd.setArgs(params);
 					commandeCd.executer();
 				}
@@ -148,13 +187,20 @@ public final class Menu {
 				break;
 				
 			case "find":
-				historique.ajouterElementList("find");
-				System.out.println("Commande en cours de dev");
+				if(indice!=-1) {
+					historique.ajouterElementList("find");
+					commandeFind.determineOption(params);
+					commandeFind.executer(currentDir);
+					commandeFind.getCompteur();
+				}else {
+					commandeFind.executer();
+				}
+				
 				break;
 				
 			case "cat":
 				if (indice != -1) {
-					historique.ajouterElementList("cd" +params);
+					historique.ajouterElementList("cd" + params);
 					commandeCat.setParams(currentDir + "\\" + params);
 					commandeCat.executer();
 
@@ -165,18 +211,23 @@ public final class Menu {
 				break;
 				
 			case "copy":
-				historique.ajouterElementList("copy" +params);
-				System.out.println("Commande en cours de dev");
+				if (indice != -1) {
+					historique.ajouterElementList("copy" + params);
+					commandeCopy.setParam(currentDir + "\\" + params);
+					commandeCopy.executer();
+				} else {
+					System.out.println("Cette commande prend un param�tre !");
+				}
 				break;
 				
 			case "crf":
 				if (indice != -1) {
-					historique.ajouterElementList("crf" +params);
+					historique.ajouterElementList("crf" + params);
 					commandeCrf.setParams(currentDir + "\\" + params);
 					commandeCrf.executer();
 
 				} else {
-					System.out.println("Cette commande prend un param�tre !");
+					System.out.println("Cette commande prend un paramètre !");
 				}
 
 				break;
@@ -188,7 +239,18 @@ public final class Menu {
 					commandeCRD.executer();
 
 				} else {
-					System.out.println("Cette commande prend un param�tre !");
+					System.out.println("Cette commande prend un paramètre !");
+				}
+
+				break;
+			case "getvars":
+				if (indice != -1) {
+					historique.ajouterElementList("getvars");
+					commandeGetVars.setParam(params);
+					commandeGetVars.executer(); 
+
+				} else {
+					System.out.println("Cette commande prend un paramètre !");
 				}
 
 				break;

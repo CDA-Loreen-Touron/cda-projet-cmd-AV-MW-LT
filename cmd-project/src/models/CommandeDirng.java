@@ -57,4 +57,10 @@ public final class CommandeDirng extends Commande {
 		return dircount;
 	}
 
+	@Override
+	public void executer(String pParams) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

@@ -35,4 +35,10 @@ public final class CommandeCrf extends Commande {
 		this.params = argument;
 	}
 
+	@Override
+	public void executer(String pParams) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
