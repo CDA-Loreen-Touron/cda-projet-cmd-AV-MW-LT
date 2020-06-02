@@ -13,15 +13,16 @@ public final class Menu {
 	private static String currentDir = "c:\\";
 	private static final CommandeDir commandeDir = new CommandeDir("dir");
 	private static final CommandeDirng commandeDirng = new CommandeDirng("dirng");
-	private static final CommandeCopy commandeCopy= new CommandeCopy("copy");
+	private static final CommandeCopy commandeCopy = new CommandeCopy("copy");
+	private static final CommandeGetVars commandeGetVars = new CommandeGetVars("getvars");
+
 	public static String getCurrentDir() {
 		return currentDir;
-	}  
-
-	public static void setCurrentDir(String currentDir) {
-		Menu.currentDir = currentDir; 
 	}
 
+	public static void setCurrentDir(String currentDir) {
+		Menu.currentDir = currentDir;
+	}
 
 	private static String params = "";
 
@@ -36,10 +37,12 @@ public final class Menu {
 			if (indice != -1) {
 				params = choix.substring(indice + 1);
 				params = params.trim();
+
 				choix = choix.substring(0, indice);
 			}
 
-			switch (choix.toLowerCase()) {//The method toLowerCase() converts the characters of a String into lower case characters
+			switch (choix.toLowerCase()) {// The method toLowerCase() converts the characters of a String into lower
+											// case characters
 
 			case "help":
 				Help help = new Help("help");
@@ -50,33 +53,31 @@ public final class Menu {
 				verif = true;
 				System.out.println("Merci au revoir");
 				break;
-				
-				
+
 			case "pwd":
 //				Pwd pwd = new Pwd("PWD");
 //				pwd.executer();
 				break;
-				
-				
+
 			case "quit":// le programme s'arrete
 				verif = true;
 				System.out.println("Merci au revoir");
 				break;
 			case "river":
 				if (indice != -1) {
-				historique.ajouterElementList("river");
-				CommandeRiver river = new CommandeRiver(null);
-				river.executer();
+					historique.ajouterElementList("river");
+					CommandeRiver river = new CommandeRiver(null);
+					river.executer();
 				} else {
 					System.out.println("Cette commande prend un param�tre !");
 				}
 				break;
 			case "isprime":
 				if (indice != -1) {
-				historique.ajouterElementList("isprime" +params);
-				CommandeIsPrime a = new CommandeIsPrime(null);
-				a.setParam(params);
-				a.executer();
+					historique.ajouterElementList("isprime" + params);
+					CommandeIsPrime a = new CommandeIsPrime(null);
+					a.setParam(params);
+					a.executer();
 				} else {
 					System.out.println("Cette commande prend un param�tre !");
 				}
@@ -100,7 +101,7 @@ public final class Menu {
 			case "cd":
 
 				if (indice != -1) {
-					historique.ajouterElementList("cd" +params);
+					historique.ajouterElementList("cd" + params);
 					commandeCd.setArgs(params);
 					commandeCd.executer();
 				}
@@ -112,7 +113,7 @@ public final class Menu {
 				break;
 			case "cat":
 				if (indice != -1) {
-					historique.ajouterElementList("cd" +params);
+					historique.ajouterElementList("cd" + params);
 					commandeCat.setParams(currentDir + "\\" + params);
 					commandeCat.executer();
 
@@ -123,16 +124,16 @@ public final class Menu {
 				break;
 			case "copy":
 				if (indice != -1) {
-				historique.ajouterElementList("copy" +params);
-				commandeCopy.setParam(currentDir + "\\" + params);
-				commandeCopy.executer();
-			} else {
-				System.out.println("Cette commande prend un param�tre !");
-			}
+					historique.ajouterElementList("copy" + params);
+					commandeCopy.setParam(currentDir + "\\" + params);
+					commandeCopy.executer();
+				} else {
+					System.out.println("Cette commande prend un param�tre !");
+				}
 				break;
 			case "crf":
 				if (indice != -1) {
-					historique.ajouterElementList("crf" +params);
+					historique.ajouterElementList("crf" + params);
 					commandeCrf.setParams(currentDir + "\\" + params);
 					commandeCrf.executer();
 
@@ -146,6 +147,17 @@ public final class Menu {
 					historique.ajouterElementList("crd");
 					commandeCRD.setParams(currentDir + "/" + params);
 					commandeCRD.executer();
+
+				} else {
+					System.out.println("Cette commande prend un paramètre !");
+				}
+
+				break;
+			case "getvars":
+				if (indice != -1) {
+					historique.ajouterElementList("getvars");
+					commandeGetVars.setParam(params);
+					commandeGetVars.executer();
 
 				} else {
 					System.out.println("Cette commande prend un paramètre !");
