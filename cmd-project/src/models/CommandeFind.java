@@ -4,8 +4,10 @@ import java.io.File;
 
 public class CommandeFind extends Commande {
 
-	public CommandeFind(String pNom) {
-		super(pNom);
+
+
+	public CommandeFind(String pNom, String pDescription) {
+		super(pNom, pDescription);
 
 	}
 

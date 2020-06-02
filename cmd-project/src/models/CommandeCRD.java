@@ -4,11 +4,14 @@ import java.io.File;
 
 public class CommandeCRD extends Commande {
 
-	public CommandeCRD(String pNom) {
-		super(pNom);
-	}
 
-	private String params = "C:\\Directory1";
+	public CommandeCRD(String pNom, String pDescription) {
+		super(pNom, pDescription);
+		
+	}
+	
+	private String params = "";
+
 
 	@Override
 	public void executer() {

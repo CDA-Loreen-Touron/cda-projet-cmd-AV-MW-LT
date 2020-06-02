@@ -8,8 +8,8 @@ public final class Hystory extends Commande {
 
 	private final ArrayList<String> historique;
 
-	public Hystory(String pNom) {
-		super(pNom);
+	public Hystory(String pNom, String pDescription) {
+		super(pNom, pDescription);
 		historique = new ArrayList<>();
 	}
 

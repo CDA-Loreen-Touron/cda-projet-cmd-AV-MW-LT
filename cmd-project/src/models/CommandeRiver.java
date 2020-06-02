@@ -4,9 +4,12 @@ public final class CommandeRiver extends Commande {
 
 	private String param;
 
-	public CommandeRiver(String pNom) {
-		super(pNom);
+
+	public CommandeRiver(String pNom, String pDescription) {
+		super(pNom, pDescription);
 	}
+		
+
 
 	@Override
 	public void executer() {

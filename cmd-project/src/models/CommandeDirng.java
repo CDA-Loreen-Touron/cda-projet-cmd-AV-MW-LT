@@ -8,8 +8,9 @@ public final class CommandeDirng extends Commande {
 	public int filecount = 0;
 	public int dircount = 0;
 
-	public CommandeDirng(String pNom) {
-		super(pNom);
+	public CommandeDirng(String pNom, String pDescription) {
+		super(pNom, pDescription);
+
 	}
 
 	@Override
