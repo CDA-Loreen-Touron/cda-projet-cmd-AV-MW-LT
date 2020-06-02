@@ -66,7 +66,7 @@ public class CommandeFind extends Commande {
 		this.compteur = 0;
 
 		if (pParams.contains("-starts") && pParams.contains("-ends")) {
-			refactorString3000(pParams);
+			pParams =refactorString3000(pParams);
 			option = 1;
 			for (int i = 0; i < pParams.length(); i++) {
 
@@ -96,12 +96,9 @@ public class CommandeFind extends Commande {
 	private boolean getFileFiltred(byte pOption, String pName) {
 		switch (pOption) {
 		case 1:
-
-			if (ordre) {
+			
 				return pName.startsWith(params[1]) && pName.endsWith(params[2]);
-			} else {
-				return pName.startsWith(params[2]) && pName.endsWith(params[1]);
-			}
+			
 
 		case 2:
 
