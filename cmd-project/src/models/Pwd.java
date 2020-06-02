@@ -8,7 +8,27 @@ public class Pwd extends Commande {
 
 	@Override
 	public void executer() {
-		System.out.println("Commande pas encore implÃ©mentÃ©e");
+		if (Commande.getNom().equals("pwd")) {
+			System.out.println("");
+		} else {
+		System.out.println("Commande introuvable");
 	}
-
 }
+	
+	
+}
+
+/*
+ajouter la commande "CD" qui permet de se déplacer dans un répertoire qui existe dans le dossier en cours.
+le dossier en cours est la racine par défaut : c:\
+pour remonter dans le dossier parent utiliser ".." comme paramètre.
+la commande pwd est impacté !!! pwd affiche le dossier courant !!
+les commandes dir et dirng sont aussi impactées
+exemple :
+> pwd 
+C:\
+*/
+
+
+/*si la commande est égale à "pwd" , afficher le message "Commande pas encore implémentée"
+sinon , le message "Commande introuvable" est affiché*/
