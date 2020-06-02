@@ -118,10 +118,15 @@ public final class Menu {
 
 				break;
 			case "find":
-				historique.ajouterElementList("find");
-				commandeFind.determineOption(params);
-				commandeFind.executer(currentDir);
-				commandeFind.getCompteur();
+				if(indice!=-1) {
+					historique.ajouterElementList("find");
+					commandeFind.determineOption(params);
+					commandeFind.executer(currentDir);
+					commandeFind.getCompteur();
+				}else {
+					commandeFind.executer();
+				}
+				
 				break;
 			case "cat":
 				if (indice != -1) {
