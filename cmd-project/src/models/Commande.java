@@ -15,7 +15,7 @@ public abstract class Commande implements IExecutable {
 		return nom;
 	}
 	
-	public String getDescription(String pDescirpiton) {
+	public String getDescription(String pDescription) {
 		return description;
 	}
 

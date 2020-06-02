@@ -8,28 +8,9 @@ public final class CommandeDirng extends Commande {
 	public int filecount = 0;
 	public int dircount = 0;
 
-<<<<<<< HEAD
-
-    public CommandeDirng(String pNom, String pDescription) {
+	public CommandeDirng(String pNom, String pDescription) {
 		super(pNom, pDescription);
-		
-	}
 
-
-@Override
-public void executer() {
-
-	  listDirectory(params);
-	  System.out.println("----------");
-	  System.out.println("Analyse de " + params );
-	  System.out.println(dircount + " dossiers");
-	  System.out.println(filecount + " fichiers");
-	  this.filecount=0;
-	  this.dircount=0;
-=======
-	public CommandeDirng(String pNom) {
-		super(pNom);
->>>>>>> dev
 	}
 
 	@Override

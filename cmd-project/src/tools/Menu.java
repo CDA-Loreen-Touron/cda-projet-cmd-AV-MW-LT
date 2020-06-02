@@ -10,7 +10,7 @@ import models.CommandeIsPrime;
 import models.CommandeRiver;
 import models.Help;
 import models.Hystory;
-import models.Pwd;
+
 
 import java.util.HashMap;
 import java.util.Iterator;
@@ -23,16 +23,16 @@ public final class Menu {
 
 	private static boolean verif;// false par defaut
 	
-	private static final CommandeIsPrime commandeIsPrime = new CommandeIsPrime ("CommandeIsPrime","Cette commande prend en paramètre un entier et affiche yes si ce paramètre est un nombre premier non sinon");
-	private static final CommandeRiver commandeRiver = new CommandeRiver ("CommandeRiver","Cette commande prend 2 paramètres en entrée et affiche la première intersection des rivières obtenues pour ces paramètres");
-	private static final Hystory historique = new Hystory("historique", "Cette commande affiche ,en plus de la commande, les paramètres passés à la commande et la date de l’exécution de la commande avec ce format 11:40:22 03/10/2018.");
-	private static final CommandeCat commandeCat = new CommandeCat("cat", "Cette commande prend en paramètre le nom d'un fichier dans le répertoire en cours et afficher son contenu à la console.");
-	private static final CommandeCrf commandeCrf = new CommandeCrf("crf", "Cette commande prend un paramètre et crée un fichier avec ce nom dans le répertoire en cours ");
-	private static final CommandeCRD commandeCRD = new CommandeCRD("crd", "Cette commande prend un paramètre et crée un répertoire avec ce nom dans le répertoire en cours");
-	private static final CommandeCD commandeCd = new CommandeCD("cd", "Cette commande permet de se déplacer dans un répertoire qui existe dans le dossier en cours.");
+	private static final CommandeIsPrime commandeIsPrime = new CommandeIsPrime ("CommandeIsPrime","Cette commande prend en parametre un entier et affiche yes si ce parametre est un nombre premier non sinon");
+	private static final CommandeRiver commandeRiver = new CommandeRiver ("CommandeRiver","Cette commande prend 2 parametres en entree et affiche la premiere intersection des rivieres obtenues pour ces parametres");
+	private static final Hystory historique = new Hystory("historique", "Cette commande affiche ,en plus de la commande, les paramï¿½tres passï¿½s ï¿½ la commande et la date de lï¿½exï¿½cution de la commande avec ce format 11:40:22 03/10/2018.");
+	private static final CommandeCat commandeCat = new CommandeCat("cat", "Cette commande prend en paramï¿½tre le nom d'un fichier dans le rï¿½pertoire en cours et afficher son contenu ï¿½ la console.");
+	private static final CommandeCrf commandeCrf = new CommandeCrf("crf", "Cette commande prend un paramï¿½tre et crï¿½e un fichier avec ce nom dans le rï¿½pertoire en cours ");
+	private static final CommandeCRD commandeCRD = new CommandeCRD("crd", "Cette commande prend un paramï¿½tre et crï¿½e un rï¿½pertoire avec ce nom dans le rï¿½pertoire en cours");
+	private static final CommandeCD commandeCd = new CommandeCD("cd", "Cette commande permet de se dï¿½placer dans un rï¿½pertoire qui existe dans le dossier en cours.");
 	private static String currentDir = "c:\\";
-	private static final CommandeDir commandeDir = new CommandeDir ("dir", "affiche le contenu du répertoire ", true);
-	private static final CommandeDirng commandeDirng = new CommandeDirng("dirng", "Cette commande affiche le contenu du répertoire en cours,exactement comme la commande dir, mais en plus affiche le nombre de répertoire et le nombre de fichier.");
+	private static final CommandeDir commandeDir = new CommandeDir ("dir", "affiche le contenu du rï¿½pertoire ", true);
+	private static final CommandeDirng commandeDirng = new CommandeDirng("dirng", "Cette commande affiche le contenu du rï¿½pertoire en cours,exactement comme la commande dir, mais en plus affiche le nombre de rï¿½pertoire et le nombre de fichier.");
 	//private static final CommandeGetVars commandeGetVars = new CommandeGetVars ("","");
 	
 	public static String getCurrentDir() {
@@ -74,10 +74,10 @@ public final class Menu {
 				break;
 				
 				
-			case "pwd":
+			/*case "pwd":
 				Pwd pwd = new Pwd("PWD");
 				pwd.executer();
-				break;
+				break;*/
 				
 				
 			case "quit":// le programme s'arrete
