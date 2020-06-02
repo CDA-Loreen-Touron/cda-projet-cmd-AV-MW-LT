@@ -8,15 +8,17 @@ public final class CommandeCat extends Commande {
 
 	public CommandeCat(String pNom, String pDescription) {
 		super(pNom, pDescription);
-		
-	}
 
-	private String params;
+	}
 
 	@Override
 	public void executer() {
+		System.out.println("Cette commande prend un paramètre !");
+	}
 
-		File file = new File(params);
+	@Override
+	public void executer(String pParams) {
+		File file = new File(pParams);
 
 		if (!file.exists()) {
 			System.out.println(" Le fichier n'existe pas ");
@@ -30,7 +32,6 @@ public final class CommandeCat extends Commande {
 						System.out.println(line);
 					} else {
 						verif = false;
-						this.params = "";
 					}
 
 				} while (verif);
@@ -40,16 +41,6 @@ public final class CommandeCat extends Commande {
 
 		}
 
-	}
-
-	public void setParams(String params) {
-		this.params = params;
-	}
-
-	@Override
-	public void executer(String pParams) {
-		// TODO Auto-generated method stub
-		
 	}
 
 }

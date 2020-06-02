@@ -7,14 +7,18 @@ public final class CommandeCrf extends Commande {
 
 	public CommandeCrf(String pNom, String pDescription) {
 		super(pNom, pDescription);
-		
-	}
 
-	private String params;
+	}
 
 	@Override
 	public void executer() {
-		File file = new File(params);
+		System.out.println("Cette commande prend un paramètre!");
+	}
+
+	@Override
+	public void executer(String pParams) {
+
+		File file = new File(pParams);
 
 		if (!file.exists()) {
 			try {
@@ -29,16 +33,6 @@ public final class CommandeCrf extends Commande {
 
 		}
 
-	}
-
-	public void setParams(String argument) {
-		this.params = argument;
-	}
-
-	@Override
-	public void executer(String pParams) {
-		// TODO Auto-generated method stub
-		
 	}
 
 }
