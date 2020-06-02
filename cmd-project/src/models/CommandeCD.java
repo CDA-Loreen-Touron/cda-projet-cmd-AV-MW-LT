@@ -8,21 +8,24 @@ import tools.Menu;
 
 public class CommandeCD extends Commande {
 
-	private String args;
-
 	public CommandeCD(String pNom, String pDescription) {
 		super(pNom, pDescription);
-		
+
 	}
 
 	@Override
 
 	public void executer() {
+System.out.println("cette commande prend un paramètre !");
+	}
+
+	@Override
+	public void executer(String pParams) {
 		Pattern p = Pattern.compile("^\\W{1,}$");
-		Matcher m = p.matcher(args);
+		Matcher m = p.matcher(pParams);
 
 		if (m.find()) {
-			if (args.equals("..")) {
+			if (pParams.equals("..")) {
 				if (!Menu.getCurrentDir().equals("c:\\")) {
 					int lastBackSlash = Menu.getCurrentDir().lastIndexOf('\\');
 					Menu.setCurrentDir(Menu.getCurrentDir().substring(0, lastBackSlash));
@@ -32,35 +35,25 @@ public class CommandeCD extends Commande {
 			}
 		} else {
 			if (!Menu.getCurrentDir().equals("C:\\")) {
-				File directory = new File(Menu.getCurrentDir() + "\\" + args);
+				File directory = new File(Menu.getCurrentDir() + "\\" + pParams);
 
 				if (directory.isDirectory()) {
-					Menu.setCurrentDir(Menu.getCurrentDir() + "\\" + args);
+					Menu.setCurrentDir(Menu.getCurrentDir() + "\\" + pParams);
 				} else {
 					System.out.println("Le chemin d'accès spécifié est introuvable");
 				}
-			}else {
-				File directory = new File(Menu.getCurrentDir() + args);
+			} else {
+				File directory = new File(Menu.getCurrentDir() + pParams);
 
 				if (directory.isDirectory()) {
-					Menu.setCurrentDir(Menu.getCurrentDir() + args);
+					Menu.setCurrentDir(Menu.getCurrentDir() + pParams);
 				} else {
 					System.out.println("Le chemin d'accès spécifié est introuvable");
 				}
 			}
-			
+
 		}
 
-	}
-
-	public void setArgs(String args) {
-		this.args = args;
-	}
-
-	@Override
-	public void executer(String pParams) {
-		// TODO Auto-generated method stub
-		
 	}
 
 }

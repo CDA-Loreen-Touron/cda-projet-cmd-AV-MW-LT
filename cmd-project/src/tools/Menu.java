@@ -57,13 +57,13 @@ public final class Menu {
 	private static String params = "";
 
 	public static void menu() {
-		
-		if(System.getProperty("cdi.default.folder")!=null) {
-			currentDir=System.getProperty("cdi.default.folder");
-		}else {
-			currentDir=System.getProperty("user.home");
+
+		if (System.getProperty("cdi.default.folder") != null) {
+			currentDir = System.getProperty("cdi.default.folder");
+		} else {
+			currentDir = System.getProperty("user.home");
 		}
-		
+
 		hm.put(commandeCat.getNom(), commandeCat.getDescription());
 		hm.put(commandeIsPrime.getNom(), commandeIsPrime.getDescription());
 		hm.put(commandeRiver.getNom(), commandeRiver.getDescription());
@@ -100,10 +100,6 @@ public final class Menu {
 				verif = true;
 				System.out.println("Merci au revoir");
 				break;
-
-			/*
-			 * case "pwd": Pwd pwd = new Pwd("PWD"); pwd.executer(); break;
-			 */
 
 			case "pwd":
 				System.out.println(currentDir);
@@ -157,7 +153,8 @@ public final class Menu {
 
 				if (indice != -1) {
 					historique.ajouterElementList("cd" + params);
-					commandeCd.setArgs(params);
+					commandeCd.executer(params);
+				} else {
 					commandeCd.executer();
 				}
 
@@ -178,11 +175,10 @@ public final class Menu {
 			case "cat":
 				if (indice != -1) {
 					historique.ajouterElementList("cd" + params);
-					commandeCat.setParams(currentDir + "\\" + params);
-					commandeCat.executer();
+					commandeCat.executer(params);
 
 				} else {
-					System.out.println("Cette commande prend un param�tre !");
+					commandeCat.executer();
 				}
 
 				break;
@@ -200,11 +196,11 @@ public final class Menu {
 			case "crf":
 				if (indice != -1) {
 					historique.ajouterElementList("crf" + params);
-					commandeCrf.setParams(currentDir + "\\" + params);
-					commandeCrf.executer();
+					commandeCrf.executer(params);
+					
 
 				} else {
-					System.out.println("Cette commande prend un paramètre !");
+					commandeCrf.executer();
 				}
 
 				break;
@@ -212,11 +208,11 @@ public final class Menu {
 			case "crd":
 				if (indice != -1) {
 					historique.ajouterElementList("crd");
-					commandeCRD.setParams(currentDir + "/" + params);
-					commandeCRD.executer();
+					commandeCRD.executer(params);
+					
 
 				} else {
-					System.out.println("Cette commande prend un paramètre !");
+					commandeCRD.executer();
 				}
 
 				break;

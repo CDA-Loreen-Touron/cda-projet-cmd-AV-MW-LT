@@ -42,7 +42,7 @@ public final class Hystory extends Commande {
 
 	@Override
 	public void executer(String pParams) {
-		// TODO Auto-generated method stub
+		System.out.println("Cette commande ne prend pas de paramètre");
 		
 	}
 
