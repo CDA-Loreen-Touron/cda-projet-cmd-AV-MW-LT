@@ -4,9 +4,14 @@ public final class CommandeRiver extends Commande {
 
 	private String param;
 
+<<<<<<< HEAD
 	public CommandeRiver(String pNom, String pDescription) {
 		super(pNom, pDescription);
 		
+=======
+	public CommandeRiver(String pNom) {
+		super(pNom);
+>>>>>>> dev
 	}
 
 	@Override

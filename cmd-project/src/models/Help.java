@@ -5,8 +5,14 @@ import java.util.Map;
 
 public class Help extends Commande {
 
+<<<<<<< HEAD
 	public Help(String pNom, String pDescription) {
 		super(pNom, pDescription);
+=======
+	public Help(String pNom) {
+		super(pNom);
+
+>>>>>>> dev
 	}
 
 	@Override
