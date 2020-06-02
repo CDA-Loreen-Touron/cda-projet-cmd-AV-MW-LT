@@ -71,4 +71,10 @@ public final class CommandeCopy extends Commande {
 
 	}
 
+	@Override
+	public void executer(String pParams) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
