@@ -7,9 +7,8 @@ public class ProgramMain {
 
 	public static void main(String[] args) {
 
-	//	Menu.menu();
-		Help help = new Help("", "");
-		help.executer();
+	 Menu.menu();
+
 	}
 
 }

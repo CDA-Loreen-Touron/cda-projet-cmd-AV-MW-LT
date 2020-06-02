@@ -20,9 +20,11 @@ import java.util.Map.Entry;
 import java.util.Set;
 
 public final class Menu {
+	private static HashMap<String, String> hm= new HashMap<>();
 
 	private static boolean verif;// false par defaut
-	
+	private static String currentDir = "c:\\";
+	private static final Help help = new Help("help", "Cette commande affiche une description pour chaque commande");
 	private static final CommandeIsPrime commandeIsPrime = new CommandeIsPrime ("CommandeIsPrime","Cette commande prend en parametre un entier et affiche yes si ce parametre est un nombre premier non sinon");
 	private static final CommandeRiver commandeRiver = new CommandeRiver ("CommandeRiver","Cette commande prend 2 parametres en entree et affiche la premiere intersection des rivieres obtenues pour ces parametres");
 	private static final Hystory historique = new Hystory("historique", "Cette commande affiche ,en plus de la commande, les param�tres pass�s � la commande et la date de l�ex�cution de la commande avec ce format 11:40:22 03/10/2018.");
@@ -30,7 +32,6 @@ public final class Menu {
 	private static final CommandeCrf commandeCrf = new CommandeCrf("crf", "Cette commande prend un param�tre et cr�e un fichier avec ce nom dans le r�pertoire en cours ");
 	private static final CommandeCRD commandeCRD = new CommandeCRD("crd", "Cette commande prend un param�tre et cr�e un r�pertoire avec ce nom dans le r�pertoire en cours");
 	private static final CommandeCD commandeCd = new CommandeCD("cd", "Cette commande permet de se d�placer dans un r�pertoire qui existe dans le dossier en cours.");
-	private static String currentDir = "c:\\";
 	private static final CommandeDir commandeDir = new CommandeDir ("dir", "affiche le contenu du r�pertoire ", true);
 	private static final CommandeDirng commandeDirng = new CommandeDirng("dirng", "Cette commande affiche le contenu du r�pertoire en cours,exactement comme la commande dir, mais en plus affiche le nombre de r�pertoire et le nombre de fichier.");
 	//private static final CommandeGetVars commandeGetVars = new CommandeGetVars ("","");
@@ -47,6 +48,19 @@ public final class Menu {
 	private static String params = "";
 
 	public static void menu() {
+		hm.put(commandeCat.getNom(),commandeCat.getDescription());
+		hm.put(commandeIsPrime.getNom(),commandeIsPrime.getDescription());
+		hm.put(commandeRiver.getNom(),commandeRiver.getDescription());
+		hm.put(historique.getNom(),historique.getDescription());
+		hm.put(commandeCrf.getNom(),commandeCrf.getDescription());
+		hm.put(commandeCRD.getNom(),commandeCRD.getDescription());
+		hm.put(commandeCd.getNom(),commandeCd.getDescription());
+		hm.put(commandeDir.getNom(),commandeDir.getDescription());
+		hm.put(commandeDirng.getNom(),commandeDirng.getDescription());
+		hm.put(help.getNom(),help.getDescription());
+		
+		help.setHm(hm);
+		
 
 		while (!verif) {
 
@@ -63,7 +77,6 @@ public final class Menu {
 			switch (choix.toLowerCase()) {//The method toLowerCase() converts the characters of a String into lower case characters
 
 			case "help":
-				Help help = new Help("help", "Cette commande affiche une description pour chaque commande");
 				help.executer();
 				break;
 				

@@ -11,12 +11,12 @@ public abstract class Commande implements IExecutable {
 		this.description = pDescription;
 	}
 
-	public String getNom(String pNom) {
-		return nom;
+	public String getNom() {
+		return this.nom;
 	}
 	
-	public String getDescription(String pDescription) {
-		return description;
+	public String getDescription() {
+		return this.description;
 	}
 
 }
