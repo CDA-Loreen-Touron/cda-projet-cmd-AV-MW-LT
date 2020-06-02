@@ -3,6 +3,7 @@ package tools;
 import models.CommandeCD;
 import models.CommandeCRD;
 import models.CommandeCat;
+import models.CommandeCopy;
 import models.CommandeCrf;
 import models.CommandeDir;
 import models.CommandeDirng;
