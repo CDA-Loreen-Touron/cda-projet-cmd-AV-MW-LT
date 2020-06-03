@@ -35,12 +35,13 @@ public class CommandeCD extends Commande {
 				System.out.println("Le chemin d'accès spécifié est introuvable");
 			}
 		} else if (new File(pParams).isDirectory()) {
+			pParams = pParams.replace('/', '\\');
 			Menu.setCurrentDir(pParams);
 		}
 
 		else {
 
-			pParams = m.replaceAll("\\");
+			pParams = pParams.replace("/", "\\");
 
 			if (!Menu.getCurrentDir().equals("C:\\")) {
 				File directory = new File(Menu.getCurrentDir() + "\\" + pParams);
