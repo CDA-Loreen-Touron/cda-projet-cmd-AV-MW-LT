@@ -47,6 +47,8 @@ public final class Menu {
 			"cette commande pertmet d'afficher les variable d'environnement avec l'option : -env et les propriétés de la jvm avec l'option : -prop si pas d'option les propriétés et les variables d'environnement sont affichées");
 	private static final CommandeCopy commandeCopy = new CommandeCopy("copy",
 			" cette commande permet de copier un fichier grâce a un autre fichier source");
+	private static final CommandeCount commandeCount = new CommandeCount("count",
+			" cette commande permet de  compter les dossiers et fichiers du  dossier en cours. Pour compter les dossiers et fichiers dans les sous-dossiers, entrer -r en option. -d affiche le nombre de dossiers et -f le nombre de fichiers. ");
 
 	public static String getCurrentDir() {
 		return currentDir;
@@ -75,6 +77,9 @@ public final class Menu {
 		hm.put(commandeCd.getNom(), commandeCd.getDescription());
 		hm.put(commandeDir.getNom(), commandeDir.getDescription());
 		hm.put(commandeDirng.getNom(), commandeDirng.getDescription());
+		hm.put(commandeCount.getNom(), commandeCount.getDescription());
+		hm.put(commandeCopy.getNom(), commandeCopy.getDescription());
+		hm.put(commandeGetVars.getNom(), commandeGetVars.getDescription());
 		hm.put(help.getNom(), help.getDescription());
 
 		help.setHm(hm);
@@ -227,6 +232,18 @@ public final class Menu {
 
 				} else {
 					commandeGetVars.executer();
+				}
+
+				break;
+
+			case "count":
+				if (indice != -1) {
+					historique.ajouterElementList("count");
+
+					commandeCount.executer(params);
+
+				} else {
+					commandeCount.executer();
 				}
 
 				break;
