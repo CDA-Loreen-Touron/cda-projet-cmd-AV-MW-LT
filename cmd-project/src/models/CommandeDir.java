@@ -4,14 +4,11 @@ import java.io.File;
 
 public final class CommandeDir extends Commande {
 
-	private String params = "";
-
-	private Boolean recursivePath = false;
 
 	public CommandeDir(String pNom, String pDescription, boolean subFolder) {
 		super(pNom, pDescription);
-		this.params = getParams();
-		this.recursivePath = subFolder;
+	
+
 	}
 
 	public CommandeDir(String pNom, String pDescription) {
@@ -20,9 +17,14 @@ public final class CommandeDir extends Commande {
 
 	@Override
 	public void executer() {
-		listDirectory(params);
+		
+	}
+
+	@Override
+	public void executer(String pParams) {
+		listDirectory(pParams);
 		System.out.println("----------");
-		System.out.println("Analyse de " + params);
+		System.out.println("Analyse de " + pParams);
 	}
 
 	private void listDirectory(String dir) {
@@ -38,19 +40,6 @@ public final class CommandeDir extends Commande {
 				}
 			}
 		}
-	}
-
-	public String getParams() {
-		return params;
-	}
-
-	public void setParams(String params) {
-		this.params = params;
-	}
-
-	@Override
-	public void executer(String pParams) {
-		// TODO Auto-generated method stub
 		
 	}
 

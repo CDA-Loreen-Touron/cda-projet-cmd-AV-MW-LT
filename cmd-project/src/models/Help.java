@@ -36,7 +36,7 @@ public class Help extends Commande {
 
 	@Override
 	public void executer(String pParams) {
-		// TODO Auto-generated method stub
-		
+		System.out.println("cette commande ne prend pas de paramètre");
+
 	}
 }

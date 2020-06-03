@@ -4,19 +4,19 @@ import java.io.File;
 
 public class CommandeCRD extends Commande {
 
-
 	public CommandeCRD(String pNom, String pDescription) {
 		super(pNom, pDescription);
-		
-	}
-	
-	private String params = "";
 
+	}
 
 	@Override
 	public void executer() {
 
-		File file = new File(params);
+	}
+
+	@Override
+	public void executer(String pParams) {
+		File file = new File(pParams);
 
 		if (!file.exists()) {
 
@@ -30,15 +30,5 @@ public class CommandeCRD extends Commande {
 			}
 		}
 
-	}
-
-	public void setParams(String argument) {
-		this.params = argument;
-	}
-
-	@Override
-	public void executer(String pParams) {
-		// TODO Auto-generated method stub
-		
 	}
 }

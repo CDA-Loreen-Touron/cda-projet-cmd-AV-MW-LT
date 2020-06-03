@@ -13,33 +13,33 @@ import tools.Menu;
 
 public final class CommandeCopy extends Commande {
 
+
 	public CommandeCopy(String pNom, String pDescription) {
 		super(pNom, pDescription);
 		// TODO Auto-generated constructor stub
 	}
 
-	private String param = "";
 
 
 	@Override
-	public void executer() {
+	public void executer(String pParams) {
 
 		int index = 0;
 		String vParamB = "";
 
-		if (param.contains(" ")) {
-			for (int i = 0; i < param.length(); i++) {
-				if (param.charAt(i) == ' ') {
+		if (pParams.contains(" ")) {
+			for (int i = 0; i < pParams.length(); i++) {
+				if (pParams.charAt(i) == ' ') {
 					index = i;
 					break;
-				} else if (param.charAt(i) == '-') {
+				} else if (pParams.charAt(i) == '-') {
 					break;
 				}
 			}
 
-			String vParamA = param.substring(0, index).trim();
+			String vParamA = pParams.substring(0, index).trim();
 			System.out.println(vParamA);
-			vParamB = param.substring(index + 1, param.length()).trim();
+			vParamB = pParams.substring(index + 1, pParams.length()).trim();
 			System.out.println(vParamB);
 
 			File vFichierRecherche = new File(vParamA);
@@ -76,16 +76,10 @@ public final class CommandeCopy extends Commande {
 		}
 	}
 
-	public void setParam(String pParams) {
 
-		this.param = pParams.trim();
-
-	}
 
 	@Override
-	public void executer(String pParams) {
-		// TODO Auto-generated method stub
-		
+	public void executer() {
 	}
 
 }

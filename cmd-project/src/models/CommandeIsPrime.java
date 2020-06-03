@@ -6,37 +6,37 @@ public final class CommandeIsPrime extends Commande {
 
 	Scanner sc = new Scanner(System.in);
 	private static boolean isPrime = true;
-	private String param = "";
 
 	public CommandeIsPrime(String pNom, String pDescription) {
 		super(pNom, pDescription);
 	}
 
 	@Override
-
-	public void executer() {
-
+	public void executer(String pParams) {
 		try {
 
-			int i = Integer.parseInt(param);
+			int i = Integer.parseInt(pParams);
 			if (i < 1) {
 
 				System.out.println("no");
-			}else {
+			} else if (i == 0) {
 
-			for (int j = 2; j < i; j++) {
-				if (i % j == 0) {
-					isPrime = false;
-					break;
-				} else {
-					isPrime = true;
-				}
-			}
-			if (isPrime == true) {
-				System.out.println("yes");
-			} else {
 				System.out.println("no");
-			}
+			} else {
+
+				for (int j = 2; j < i; j++) {
+					if (i % j == 0) {
+						isPrime = false;
+						break;
+					} else {
+						isPrime = true;
+					}
+				}
+				if (isPrime == true) {
+					System.out.println("yes");
+				} else {
+					System.out.println("no");
+				}
 			}
 		} catch (Exception e) {
 			System.out.println("Erreur de saisie de la commande isprime.");
@@ -45,16 +45,10 @@ public final class CommandeIsPrime extends Commande {
 
 	}
 
-	public void setParam(String pParam) {
-		this.param = pParam.trim();
-
-	}
-
 	@Override
-	public void executer(String pParams) {
+	public void executer() {
 		// TODO Auto-generated method stub
-		
+
 	}
 
-	
 }
