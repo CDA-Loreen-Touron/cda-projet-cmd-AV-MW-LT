@@ -8,8 +8,8 @@ public final class Hystory extends Commande {
 
 	private final ArrayList<String> historique;
 
-	public Hystory(String pNom) {
-		super(pNom);
+	public Hystory(String pNom, String pDescription) {
+		super(pNom, pDescription);
 		historique = new ArrayList<>();
 	}
 
@@ -38,6 +38,12 @@ public final class Hystory extends Commande {
 
 	public void clear() {
 		this.historique.clear();
+	}
+
+	@Override
+	public void executer(String pParams) {
+		System.out.println("Cette commande ne prend pas de paramètre");
+
 	}
 
 }

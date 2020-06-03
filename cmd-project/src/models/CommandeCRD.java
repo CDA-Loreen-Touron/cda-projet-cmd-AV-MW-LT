@@ -4,16 +4,20 @@ import java.io.File;
 
 public class CommandeCRD extends Commande {
 
-	public CommandeCRD(String pNom) {
-		super(pNom);
-	}
+	public CommandeCRD(String pNom, String pDescription) {
+		super(pNom, pDescription);
 
-	private String params = "C:\\Directory1";
+	}
 
 	@Override
 	public void executer() {
+		System.out.println("Cette commande nécessite un argument");
 
-		File file = new File(params);
+	}
+
+	@Override
+	public void executer(String pParams) {
+		File file = new File(pParams);
 
 		if (!file.exists()) {
 
@@ -27,9 +31,5 @@ public class CommandeCRD extends Commande {
 			}
 		}
 
-	}
-
-	public void setParams(String argument) {
-		this.params = argument;
 	}
 }

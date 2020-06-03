@@ -8,43 +8,61 @@ import tools.Menu;
 
 public class CommandeCD extends Commande {
 
-	private String args;
-
-	public CommandeCD(String pNom) {
-		super(pNom);
+	public CommandeCD(String pNom, String pDescription) {
+		super(pNom, pDescription);
 
 	}
 
 	@Override
 
 	public void executer() {
+		System.out.println("cette commande prend un paramètre !");
+	}
+
+	@Override
+	public void executer(String pParams) {
 		Pattern p = Pattern.compile("^\\W{1,}$");
-		Matcher m = p.matcher(args);
+		Matcher m = p.matcher(pParams);
 
 		if (m.find()) {
-			if (args.equals("..")) {
-				if (!Menu.getCurrentDir().equals("c:\\")) {
+			if (pParams.equals("..")) {
+				if (!Menu.getCurrentDir().equals("C:")) {
 					int lastBackSlash = Menu.getCurrentDir().lastIndexOf('\\');
 					Menu.setCurrentDir(Menu.getCurrentDir().substring(0, lastBackSlash));
 				}
+
 			} else {
 				System.out.println("Le chemin d'accès spécifié est introuvable");
 			}
-		} else {
-
-			File directory = new File(Menu.getCurrentDir() + "\\" + args);
-
-			if (directory.isDirectory()) {
-				Menu.setCurrentDir(Menu.getCurrentDir() + "\\" + args);
-			} else {
-				System.out.println("Le chemin d'accès spécifié est introuvable");
-			}
+		} else if (new File(pParams).isDirectory()) {
+			pParams = pParams.replace('/', '\\');
+			Menu.setCurrentDir(pParams);
 		}
 
-	}
+		else {
 
-	public void setArgs(String args) {
-		this.args = args;
+			pParams = pParams.replace("/", "\\");
+
+			if (!Menu.getCurrentDir().equals("C:\\")) {
+				File directory = new File(Menu.getCurrentDir() + "\\" + pParams);
+
+				if (directory.isDirectory()) {
+					Menu.setCurrentDir(Menu.getCurrentDir() + "\\" + pParams);
+				} else {
+					System.out.println("Le chemin d'accès spécifié est introuvable");
+				}
+			} else {
+				File directory = new File(Menu.getCurrentDir() + pParams);
+
+				if (directory.isDirectory()) {
+					Menu.setCurrentDir(Menu.getCurrentDir() + pParams);
+				} else {
+					System.out.println("Le chemin d'accès spécifié est introuvable");
+				}
+			}
+
+		}
+
 	}
 
 }

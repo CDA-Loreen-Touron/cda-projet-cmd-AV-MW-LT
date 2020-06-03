@@ -4,17 +4,26 @@ import java.io.File;
 
 public final class CommandeDir extends Commande {
 
-	private String params = "";
+	public CommandeDir(String pNom, String pDescription, boolean subFolder) {
+		super(pNom, pDescription);
 
-	public CommandeDir(String pNom) {
-		super(pNom);
+	}
+
+	public CommandeDir(String pNom, String pDescription) {
+		super(pNom, pDescription);
 	}
 
 	@Override
 	public void executer() {
-		listDirectory(params);
+		System.out.println("Cette commande nécessite un argument");
+
+	}
+
+	@Override
+	public void executer(String pParams) {
+		listDirectory(pParams);
 		System.out.println("----------");
-		System.out.println("Analyse de " + params);
+		System.out.println("Analyse de " + pParams);
 	}
 
 	private void listDirectory(String dir) {
@@ -30,14 +39,7 @@ public final class CommandeDir extends Commande {
 				}
 			}
 		}
-	}
 
-	public String getParams() {
-		return params;
-	}
-
-	public void setParams(String params) {
-		this.params = params;
 	}
 
 }

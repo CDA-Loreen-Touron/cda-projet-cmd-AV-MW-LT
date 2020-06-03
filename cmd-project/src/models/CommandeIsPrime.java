@@ -6,46 +6,49 @@ public final class CommandeIsPrime extends Commande {
 
 	Scanner sc = new Scanner(System.in);
 	private static boolean isPrime = true;
-	private String param = "";
 
-	public CommandeIsPrime(String pNom) {
-		super(pNom);
+	public CommandeIsPrime(String pNom, String pDescription) {
+		super(pNom, pDescription);
 	}
 
 	@Override
-
-	public void executer() {
-
+	public void executer(String pParams) {
 		try {
 
-			int i = Integer.parseInt(param);
+			int i = Integer.parseInt(pParams);
 			if (i < 1) {
 
-				System.out.println("Paramètre négatif");
-			}
+				System.out.println("no");
+			} else if (i == 0) {
 
-			for (int j = 2; j < i; j++) {
-				if (i % j == 0) {
-					isPrime = false;
-					break;
+				System.out.println("no");
+			} else {
+
+				for (int j = 2; j < i; j++) {
+					if (i % j == 0) {
+						isPrime = false;
+						break;
+					} else {
+						isPrime = true;
+					}
+				}
+				if (isPrime == true) {
+					System.out.println("yes");
 				} else {
-					isPrime = true;
+					System.out.println("no");
 				}
 			}
-			if (isPrime == true) {
-				System.out.println("TRUE");
-			} else {
-				System.out.println("FALSE");
-			}
 		} catch (Exception e) {
-			System.out.println("Erreure de saisie de la commande isprime.");
+			System.out.println("Erreur de saisie de la commande isprime.");
 			System.out.println("Exemple : isprime 11");
 		}
 
 	}
 
-	public void setParam(String pParam) {
-		this.param = pParam.trim();
+	@Override
+	public void executer() {
 
+		System.out.println("Cette commande nécessite un argument");
 	}
+
 }

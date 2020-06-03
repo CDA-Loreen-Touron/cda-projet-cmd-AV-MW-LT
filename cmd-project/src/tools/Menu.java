@@ -1,161 +1,298 @@
 package tools;
 
-import models.*;
+import java.io.File;
+import java.util.HashMap;
+
+import models.CommandeCD;
+import models.CommandeCRD;
+import models.CommandeCat;
+import models.CommandeCopy;
+import models.CommandeCount;
+import models.CommandeCrf;
+import models.CommandeDir;
+import models.CommandeDirng;
+import models.CommandeFind;
+import models.CommandeFline;
+import models.CommandeGetVars;
+import models.CommandeIsPrime;
+import models.CommandeNow;
+import models.CommandeRiver;
+import models.Help;
+import models.Hystory;
 
 public final class Menu {
+	private static HashMap<String, String> hm = new HashMap<>();
 
 	private static boolean verif;// false par defaut
-	private static final Hystory historique = new Hystory("historique");
-	private static final CommandeCat commandeCat = new CommandeCat("cat");
-	private static final CommandeCrf commandeCrf = new CommandeCrf("crf");
-	private static final CommandeCRD commandeCRD = new CommandeCRD("crd");
-	private static final CommandeCD commandeCd = new CommandeCD("cd");
-	private static String currentDir = "c:\\";
-	private static final CommandeDir commandeDir = new CommandeDir("dir");
-	private static final CommandeDirng commandeDirng = new CommandeDirng("dirng");
-	private static final CommandeCopy commandeCopy= new CommandeCopy("copy");
+
+	private static String currentDir = "";
+	private static final Help help = new Help("help", "Cette commande affiche une description pour chaque commande");
+	private static final CommandeIsPrime commandeIsPrime = new CommandeIsPrime("isPrime",
+			"Cette commande prend en parametre un entier et affiche yes si ce parametre est un nombre premier non sinon");
+	private static final CommandeRiver commandeRiver = new CommandeRiver("CommandeRiver",
+			"Cette commande prend 2 parametres en entree et affiche la premiere intersection des rivieres obtenues pour ces parametres");
+	private static final Hystory historique = new Hystory("historique",
+			"Cette commande affiche ,en plus de la commande, les paramètres passés à la commande et la date de l'éxécution de la commande avec ce format 11:40:22 03/10/2018.");
+	private static final CommandeFind commandeFind = new CommandeFind("find",
+			"cette commande prend en paramètre une chaine de caractère , il permet de retrouver un fichier contenant la chaine , si l'option -starts est utilisé , le fichier recherché commencera par la chaine et si l'option -ends est utilisée le fichier finira par cette chaîne    ");
+	private static final CommandeCat commandeCat = new CommandeCat("cat",
+			"Cette commande prend en paramètre le nom d'un fichier dans le répertoire en cours et afficher son contenu à la console.");
+	private static final CommandeCrf commandeCrf = new CommandeCrf("crf",
+			"Cette commande prend un paramètre et crée un fichier avec ce nom dans le répertoire en cours ");
+	private static final CommandeCRD commandeCRD = new CommandeCRD("crd",
+			"Cette commande prend un paramètre et cr�e un répertoire avec ce nom dans le répertoire en cours");
+	private static final CommandeCD commandeCd = new CommandeCD("cd",
+			"Cette commande permet de se déplacer dans un répertoire qui existe dans le dossier en cours.");
+	private static final CommandeDir commandeDir = new CommandeDir("dir", "affiche le contenu du répertoire ", true);
+	private static final CommandeDirng commandeDirng = new CommandeDirng("dirng",
+			"Cette commande affiche le contenu du répertoire en cours,exactement comme la commande dir, mais en plus affiche le nombre de répertoire et le nombre de fichier.");
+	private static final CommandeGetVars commandeGetVars = new CommandeGetVars("getVars",
+			"cette commande permet d'afficher les variable d'environnement avec l'option : -env et les propriétés de la jvm avec l'option : -prop si pas d'option les propriétés et les variables d'environnement sont affichées");
+	private static final CommandeCopy commandeCopy = new CommandeCopy("copy",
+			" cette commande permet de copier un fichier grâce a un autre fichier source");
+	private static final CommandeFline commandeFline = new CommandeFline("fline",
+			"cette commande permet : d'afficher le nombre de lignes du fichier grâce à l'option -n , de débuter la recherhce à partir d'une certaine ligne grâce à l'option -d , finir la recherche à une certaine ligne grâce à l'option -f et de recherche un mot dans un ligne et de l'afficher grâce à l'option -s ");
+	private static final CommandeCount commandeCount = new CommandeCount("count",
+			" cette commande permet de  compter les dossiers et fichiers du  dossier en cours. Pour compter les dossiers et fichiers dans les sous-dossiers, entrer -r en option. -d affiche le nombre de dossiers et -f le nombre de fichiers. ");
+	private static final CommandeNow commandeNow = new CommandeNow("Now", "Cette commande affiche la date et l'heure");
+
 	public static String getCurrentDir() {
 		return currentDir;
-	}  
-
-	public static void setCurrentDir(String currentDir) {
-		Menu.currentDir = currentDir; 
 	}
 
+	public static void setCurrentDir(String currentDir) {
+		Menu.currentDir = currentDir;
+	}
 
 	private static String params = "";
 
 	public static void menu() {
 
-		while (!verif) {
+		if (System.getProperty("cdi.default.folder") != null) {
+			if (new File(System.getProperty("cdi.default.folder")).isDirectory()) {
+				currentDir = System.getProperty("cdi.default.folder");
+			} else {
+				currentDir = System.getProperty("user.home");
+			}
 
-			
+		} else {
+			currentDir = System.getProperty("user.home");
+		}
+
+		hm.put(commandeCat.getNom(), commandeCat.getDescription());
+		hm.put(commandeIsPrime.getNom(), commandeIsPrime.getDescription());
+		hm.put(commandeRiver.getNom(), commandeRiver.getDescription());
+		hm.put(historique.getNom(), historique.getDescription());
+		hm.put(commandeCrf.getNom(), commandeCrf.getDescription());
+		hm.put(commandeCRD.getNom(), commandeCRD.getDescription());
+		hm.put(commandeCd.getNom(), commandeCd.getDescription());
+		hm.put(commandeDir.getNom(), commandeDir.getDescription());
+		hm.put(commandeDirng.getNom(), commandeDirng.getDescription());
+		hm.put(commandeCount.getNom(), commandeCount.getDescription());
+		hm.put(commandeCopy.getNom(), commandeCopy.getDescription());
+		hm.put(commandeGetVars.getNom(), commandeGetVars.getDescription());
+		hm.put(help.getNom(), help.getDescription());
+		hm.put(commandeNow.getNom(), commandeNow.getDescription());
+		hm.put(commandeFind.getNom(), commandeFind.getDescription());
+		hm.put(commandeFline.getNom(), commandeFline.getDescription());
+		hm.put("exit", "cette commande permet de quitter l'application");
+		hm.put("quit", "cette commande permet de quitter l'application");
+		hm.put("pwd", "cette commande permet d'afficher le répertoire en cours d'utilisation");
+		hm.put("HistClear", "cette commande permet de vider l'historique");
+		help.setHm(hm);
+
+		while (!verif) {
 
 			String choix = EntreeClavier.lireString();
 			int indice = choix.indexOf(" ");
 			if (indice != -1) {
 				params = choix.substring(indice + 1);
 				params = params.trim();
+
 				choix = choix.substring(0, indice);
 			}
 
-			switch (choix.toLowerCase()) {//The method toLowerCase() converts the characters of a String into lower case characters
+			switch (choix.toLowerCase()) {// The method toLowerCase() converts the characters of a String into lower
+											// case characters
 
 			case "help":
-				Help help = new Help("help");
 				help.executer();
 				break;
+
 			case "exit":// le programme s'arrete, n'a plus de possibilit� d'�crire, le programme se
-						// ferme, on sort du while
+
+				// ferme, on sort du while
 				verif = true;
 				System.out.println("Merci au revoir");
 				break;
-				
-				
+
 			case "pwd":
 				System.out.println(currentDir);
 				break;
-				
-				
+
 			case "quit":// le programme s'arrete
 				verif = true;
 				System.out.println("Merci au revoir");
 				break;
+
 			case "river":
 				if (indice != -1) {
-				historique.ajouterElementList("river");
-				CommandeRiver river = new CommandeRiver(null);
-				river.executer();
+
+					historique.ajouterElementList("river");
+					commandeRiver.executer(params);
+
 				} else {
-					System.out.println("Cette commande prend un param�tre !");
+					commandeRiver.executer();
 				}
-				break;
+
 			case "isprime":
 				if (indice != -1) {
-				historique.ajouterElementList("isprime" +params);
-				CommandeIsPrime a = new CommandeIsPrime(null);
-				a.setParam(params);
-				a.executer();
+					historique.ajouterElementList("isprime" + params);
+
+					commandeIsPrime.executer(params);
+
 				} else {
-					System.out.println("Cette commande prend un param�tre !");
+					commandeIsPrime.executer();
 				}
+
 				break;
 			case "history":
 				historique.executer();
 				break;
+
 			case "histclear":
 				historique.clear();
 				break;
+
 			case "dir":
 				historique.ajouterElementList("dir");
-				commandeDir.setParams(currentDir);
-				commandeDir.executer();
+				commandeDir.executer(currentDir);
 				break;
+
 			case "dirng":
 				historique.ajouterElementList("dirng");
-				commandeDirng.setParams(currentDir);
-				commandeDirng.executer();
+				commandeDirng.executer(currentDir);
 				break;
+
 			case "cd":
 
 				if (indice != -1) {
-					historique.ajouterElementList("cd" +params);
-					commandeCd.setArgs(params);
+					historique.ajouterElementList("cd" + params);
+					commandeCd.executer(params);
+				} else {
 					commandeCd.executer();
 				}
 
 				break;
+
 			case "find":
-				historique.ajouterElementList("find");
-				System.out.println("Commande en cours de dev");
+				if (indice != -1) {
+					historique.ajouterElementList("find");
+					commandeFind.determineOption(params);
+					commandeFind.executer(currentDir);
+					commandeFind.getCompteur();
+				} else {
+					commandeFind.executer();
+				}
+
 				break;
+
 			case "cat":
 				if (indice != -1) {
-					historique.ajouterElementList("cd" +params);
-					commandeCat.setParams(currentDir + "\\" + params);
+					historique.ajouterElementList("cd" + params);
+					commandeCat.executer(currentDir + "\\" + params);
+
+				} else {
+
 					commandeCat.executer();
 
-				} else {
-					System.out.println("Cette commande prend un param�tre !");
 				}
 
 				break;
+
 			case "copy":
 				if (indice != -1) {
-				historique.ajouterElementList("copy" +params);
-				commandeCopy.setParam(currentDir + "\\" + params);
-				commandeCopy.executer();
-			} else {
-				System.out.println("Cette commande prend un param�tre !");
-			}
+					historique.ajouterElementList("copy" + params);
+					String paramètres = currentDir + "\\" + params;
+					commandeCopy.executer(paramètres);
+				} else {
+					commandeCopy.executer();
+				}
 				break;
+
 			case "crf":
 				if (indice != -1) {
-					historique.ajouterElementList("crf" +params);
-					commandeCrf.setParams(currentDir + "\\" + params);
-					commandeCrf.executer();
+					historique.ajouterElementList("crf" + params);
+					commandeCrf.executer(params);
 
 				} else {
-					System.out.println("Cette commande prend un paramètre !");
+					commandeCrf.executer();
 				}
 
 				break;
+
 			case "crd":
 				if (indice != -1) {
 					historique.ajouterElementList("crd");
-					commandeCRD.setParams(currentDir + "/" + params);
-					commandeCRD.executer();
+					commandeCRD.executer(params);
 
 				} else {
-					System.out.println("Cette commande prend un paramètre !");
+					commandeCRD.executer();
 				}
 
 				break;
+			case "getvars":
+				if (indice != -1) {
+					historique.ajouterElementList("getvars");
+
+					commandeGetVars.executer(params);
+
+				} else {
+					commandeGetVars.executer();
+				}
+
+				break;
+			case "fline":
+				if (indice != -1) {
+					historique.ajouterElementList("getvars");
+					commandeFline.executer(currentDir + "\\" + params);
+
+				} else {
+					commandeFline.executer();
+				}
+
+				break;
+
+			case "now":
+				if (indice != -1) {
+					historique.ajouterElementList("now " + params);
+					commandeNow.executer(params);
+
+				} else {
+					historique.ajouterElementList("now");
+					commandeNow.executer();
+				}
+
+				break;
+
+			case "count":
+				if (indice != -1) {
+					historique.ajouterElementList("count");
+
+					commandeCount.executer(params);
+
+				} else {
+					commandeCount.executer();
+				}
+
+				break;
+
 			default:
 				System.out.println("Commande inconnus");
 				break;
 
 			}
+
 		}
 	}
 
