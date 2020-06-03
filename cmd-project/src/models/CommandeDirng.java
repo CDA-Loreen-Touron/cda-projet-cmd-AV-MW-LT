@@ -4,8 +4,8 @@ import java.io.File;
 
 public final class CommandeDirng extends Commande {
 
-	public int filecount = 0;
-	public int dircount = 0;
+	private int filecount = 0;
+	private int dircount = 0;
 
 	public CommandeDirng(String pNom, String pDescription) {
 		super(pNom, pDescription);
