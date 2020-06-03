@@ -78,7 +78,7 @@ public final class CommandeCount extends Commande {
 			try {
 
 				if (param.length() > 3) {
-					System.out.println("Nombre de paramètres incorrecte.");
+					System.out.println("Invalid number of options.");
 				} else {
 
 					switch (param) {
@@ -127,7 +127,21 @@ public final class CommandeCount extends Commande {
 						this.dircount = 0;
 						break;
 
+					case "dr":
+						listDirectoryOptionR(RepEnCours);
+						System.out.println(dircount + " 	dossiers");
+						this.filecount = 0;
+						this.dircount = 0;
+						break;
+
 					case "rf":
+						listDirectoryOptionR(RepEnCours);
+						System.out.println(filecount + " 	fichiers");
+						this.filecount = 0;
+						this.dircount = 0;
+						break;
+
+					case "fr":
 						listDirectoryOptionR(RepEnCours);
 						System.out.println(filecount + " 	fichiers");
 						this.filecount = 0;
@@ -142,7 +156,39 @@ public final class CommandeCount extends Commande {
 						this.dircount = 0;
 						break;
 
+					case "drf":
+						listDirectoryOptionR(RepEnCours);
+						System.out.println(dircount + " 	dossiers");
+						System.out.println(filecount + " 	fichiers");
+						this.filecount = 0;
+						this.dircount = 0;
+						break;
+
+					case "dfr":
+						listDirectoryOptionR(RepEnCours);
+						System.out.println(dircount + " 	dossiers");
+						System.out.println(filecount + " 	fichiers");
+						this.filecount = 0;
+						this.dircount = 0;
+						break;
+
 					case "rfd":
+						listDirectoryOptionR(RepEnCours);
+						System.out.println(filecount + " 	fichiers");
+						System.out.println(dircount + " 	dossiers");
+						this.filecount = 0;
+						this.dircount = 0;
+						break;
+
+					case "frd":
+						listDirectoryOptionR(RepEnCours);
+						System.out.println(filecount + " 	fichiers");
+						System.out.println(dircount + " 	dossiers");
+						this.filecount = 0;
+						this.dircount = 0;
+						break;
+
+					case "fdr":
 						listDirectoryOptionR(RepEnCours);
 						System.out.println(filecount + " 	fichiers");
 						System.out.println(dircount + " 	dossiers");
