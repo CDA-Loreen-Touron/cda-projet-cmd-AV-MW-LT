@@ -1,5 +1,6 @@
 package tools;
 
+import java.io.File;
 import java.util.HashMap;
 
 import models.CommandeCD;
@@ -66,7 +67,12 @@ public final class Menu {
 	public static void menu() {
 
 		if (System.getProperty("cdi.default.folder") != null) {
-			currentDir = System.getProperty("cdi.default.folder");
+			if (new File(System.getProperty("cdi.default.folder")).isDirectory()) {
+				currentDir = System.getProperty("cdi.default.folder");
+			} else {
+				currentDir = System.getProperty("user.home");
+			}
+
 		} else {
 			currentDir = System.getProperty("user.home");
 		}
