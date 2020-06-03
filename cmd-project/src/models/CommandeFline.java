@@ -21,7 +21,7 @@ public class CommandeFline extends Commande {
 	@Override
 	public void executer() {
 
-		System.out.println("Cette commande prend des paramètre !");
+		System.out.println("Cette commande prend des paramètres !");
 
 	}
 
@@ -44,7 +44,7 @@ public class CommandeFline extends Commande {
 
 		if (tab.length > 2 && tab[1].equals("-n")) {
 
-			System.out.println("L'option N dois être utiliser seul !");
+			System.out.println("L'option N dois être utilisée seule !");
 		} else if (tab.length == 1) {
 			CommandeCat cat = new CommandeCat("", "");
 			cat.executer(pParams);
@@ -78,7 +78,7 @@ public class CommandeFline extends Commande {
 						return;
 					} catch (NumberFormatException e) {
 						System.out.println(
-								"Erreur lors de la conversion ! veuillez rentrez un chiffre pour l'option d ou f");
+								"Erreur lors de la conversion ! veuillez rentrer un chiffre pour l'option d ou f");
 						return;
 					}
 

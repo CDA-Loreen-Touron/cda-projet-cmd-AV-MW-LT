@@ -47,8 +47,8 @@ public final class CommandeIsPrime extends Commande {
 
 	@Override
 	public void executer() {
-		// TODO Auto-generated method stub
 
+		System.out.println("Cette commande nécessite un argument");
 	}
 
 }

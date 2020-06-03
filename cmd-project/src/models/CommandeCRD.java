@@ -11,6 +11,7 @@ public class CommandeCRD extends Commande {
 
 	@Override
 	public void executer() {
+		System.out.println("Cette commande nécessite un argument");
 
 	}
 

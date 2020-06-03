@@ -4,10 +4,8 @@ import java.io.File;
 
 public final class CommandeDir extends Commande {
 
-
 	public CommandeDir(String pNom, String pDescription, boolean subFolder) {
 		super(pNom, pDescription);
-	
 
 	}
 
@@ -17,7 +15,8 @@ public final class CommandeDir extends Commande {
 
 	@Override
 	public void executer() {
-		
+		System.out.println("Cette commande nécessite un argument");
+
 	}
 
 	@Override
@@ -40,7 +39,7 @@ public final class CommandeDir extends Commande {
 				}
 			}
 		}
-		
+
 	}
 
 }
