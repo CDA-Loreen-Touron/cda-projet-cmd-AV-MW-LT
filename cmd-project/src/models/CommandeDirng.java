@@ -4,7 +4,6 @@ import java.io.File;
 
 public final class CommandeDirng extends Commande {
 
-	private String params = "";
 	public int filecount = 0;
 	public int dircount = 0;
 
@@ -13,11 +12,11 @@ public final class CommandeDirng extends Commande {
 	}
 
 	@Override
-	public void executer() {
+	public void executer(String pParams) {
 
-		listDirectory(params);
+		listDirectory(pParams);
 		System.out.println("----------");
-		System.out.println("Analyse de " + params);
+		System.out.println("Analyse de " + pParams);
 		System.out.println(dircount + " dossiers");
 		System.out.println(filecount + " fichiers");
 		this.filecount = 0;
@@ -40,13 +39,7 @@ public final class CommandeDirng extends Commande {
 		}
 	}
 
-	public String getParams() {
-		return params;
-	}
 
-	public void setParams(String params) {
-		this.params = params;
-	}
 
 	public int getFilecount() {
 		return filecount;
@@ -56,9 +49,10 @@ public final class CommandeDirng extends Commande {
 		return dircount;
 	}
 
+
+
 	@Override
-	public void executer(String pParams) {
-		// TODO Auto-generated method stub
+	public void executer() {
 		
 	}
 

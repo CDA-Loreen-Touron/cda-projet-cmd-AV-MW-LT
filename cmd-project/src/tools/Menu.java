@@ -4,6 +4,7 @@ import models.CommandeCD;
 import models.CommandeCRD;
 import models.CommandeCat;
 import models.CommandeCopy;
+import models.CommandeCount;
 import models.CommandeCrf;
 import models.CommandeDir;
 import models.CommandeDirng;
@@ -22,14 +23,15 @@ public final class Menu {
 	private static final CommandeCrf commandeCrf = new CommandeCrf("crf");
 	private static final CommandeCRD commandeCRD = new CommandeCRD("crd");
 	private static final CommandeCD commandeCd = new CommandeCD("cd");
+	private static final CommandeIsPrime commandeIsPrime= new CommandeIsPrime("isprime");
+	private static final CommandeRiver commandeRiver= new CommandeRiver("river");
 	private static String currentDir = "C:\\";
 	private static final CommandeDir commandeDir = new CommandeDir("dir");
 	private static final CommandeDirng commandeDirng = new CommandeDirng("dirng");
 	private static final CommandeCopy commandeCopy= new CommandeCopy("copy");
 	private static final CommandeFind commandeFind = new CommandeFind("find");
-
 	private static final CommandeGetVars commandeGetVars = new CommandeGetVars("getvars");
-
+	private static final CommandeCount commandeCount = new CommandeCount("getvars");
 	public static String getCurrentDir() {
 		return currentDir;
 	}
@@ -62,7 +64,7 @@ public final class Menu {
 				Help help = new Help("help");
 				help.executer();
 				break;
-			case "exit":// le programme s'arrete, n'a plus de possibilit� d'�crire, le programme se
+			case "exit":// le programme s'arrete, n'a plus de possibilité d'écrire, le programme se
 						// ferme, on sort du while
 				verif = true;
 				System.out.println("Merci au revoir");
@@ -78,19 +80,17 @@ public final class Menu {
 				break;
 			case "river":
 				if (indice != -1) {
-					historique.ajouterElementList("river");
-					CommandeRiver river = new CommandeRiver(null);
-					river.executer();
+					historique.ajouterElementList("river");				
+					commandeRiver.executer(params);
 				} else {
-					System.out.println("Cette commande prend un param�tre !");
+					System.out.println("Cette commande prend un paramètre !");
 				}
 				break;
 			case "isprime":
 				if (indice != -1) {
 					historique.ajouterElementList("isprime" + params);
-					CommandeIsPrime a = new CommandeIsPrime(null);
-					a.setParam(params);
-					a.executer();
+					commandeIsPrime.executer(params);
+					
 				} else {
 					System.out.println("Cette commande prend un param�tre !");
 				}
@@ -103,13 +103,11 @@ public final class Menu {
 				break;
 			case "dir":
 				historique.ajouterElementList("dir");
-				commandeDir.setParams(currentDir);
-				commandeDir.executer();
+				commandeDir.executer(currentDir);
 				break;
 			case "dirng":
 				historique.ajouterElementList("dirng");
-				commandeDirng.setParams(currentDir);
-				commandeDirng.executer();
+				commandeDirng.executer(currentDir);
 				break;
 			case "cd":
 
@@ -138,17 +136,17 @@ public final class Menu {
 					commandeCat.executer();
 
 				} else {
-					System.out.println("Cette commande prend un param�tre !");
+					System.out.println("Cette commande prend un paramètre !");
 				}
 
 				break;
 			case "copy":
 				if (indice != -1) {
 					historique.ajouterElementList("copy" + params);
-					commandeCopy.setParam(currentDir + "\\" + params);
-					commandeCopy.executer();
+					String paramètres = currentDir + "\\" + params;
+					commandeCopy.executer(paramètres);
 				} else {
-					System.out.println("Cette commande prend un param�tre !");
+					System.out.println("Cette commande prend un paramètre !");
 				}
 				break;
 			case "crf":
@@ -176,11 +174,10 @@ public final class Menu {
 			case "getvars":
 				if (indice != -1) {
 					historique.ajouterElementList("getvars");
-					commandeGetVars.setParam(params);
-					commandeGetVars.executer(); 
+					commandeGetVars.executer(params); 
 
 				} else {
-					System.out.println("Cette commande prend un paramètre !");
+					commandeGetVars.executer(); 
 				}
 
 				break;
