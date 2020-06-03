@@ -210,7 +210,7 @@ public final class CommandeCount extends Commande {
 				}
 
 			} catch (Exception e) {
-				System.out.println("Paramètre saisi incorrecte.");
+				System.out.println("Paramètre saisi incorrect.");
 			}
 		}
 	}

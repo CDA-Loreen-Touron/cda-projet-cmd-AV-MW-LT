@@ -56,7 +56,8 @@ public final class CommandeRiver extends Commande {
 
 	@Override
 	public void executer() {
-		// TODO Auto-generated method stub
+
+		System.out.println("Cette commande prend un argument");
 
 	}
 }

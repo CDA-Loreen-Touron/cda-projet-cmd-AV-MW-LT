@@ -27,27 +27,27 @@ public final class Menu {
 
 	private static String currentDir = "";
 	private static final Help help = new Help("help", "Cette commande affiche une description pour chaque commande");
-	private static final CommandeIsPrime commandeIsPrime = new CommandeIsPrime("CommandeIsPrime",
+	private static final CommandeIsPrime commandeIsPrime = new CommandeIsPrime("isPrime",
 			"Cette commande prend en parametre un entier et affiche yes si ce parametre est un nombre premier non sinon");
 	private static final CommandeRiver commandeRiver = new CommandeRiver("CommandeRiver",
 			"Cette commande prend 2 parametres en entree et affiche la premiere intersection des rivieres obtenues pour ces parametres");
 	private static final Hystory historique = new Hystory("historique",
-			"Cette commande affiche ,en plus de la commande, les param�tres pass�s � la commande et la date de l�ex�cution de la commande avec ce format 11:40:22 03/10/2018.");
+			"Cette commande affiche ,en plus de la commande, les paramètres passés à la commande et la date de l'éxécution de la commande avec ce format 11:40:22 03/10/2018.");
 	private static final CommandeFind commandeFind = new CommandeFind("find",
 			"cette commande prend en paramètre une chaine de caractère , il permet de retrouver un fichier contenant la chaine , si l'option -starts est utilisé , le fichier recherché commencera par la chaine et si l'option -ends est utilisée le fichier finira par cette chaîne    ");
 	private static final CommandeCat commandeCat = new CommandeCat("cat",
-			"Cette commande prend en param�tre le nom d'un fichier dans le r�pertoire en cours et afficher son contenu � la console.");
+			"Cette commande prend en paramètre le nom d'un fichier dans le répertoire en cours et afficher son contenu à la console.");
 	private static final CommandeCrf commandeCrf = new CommandeCrf("crf",
-			"Cette commande prend un param�tre et cr�e un fichier avec ce nom dans le r�pertoire en cours ");
+			"Cette commande prend un paramètre et crée un fichier avec ce nom dans le répertoire en cours ");
 	private static final CommandeCRD commandeCRD = new CommandeCRD("crd",
-			"Cette commande prend un param�tre et cr�e un r�pertoire avec ce nom dans le r�pertoire en cours");
+			"Cette commande prend un paramètre et cr�e un répertoire avec ce nom dans le répertoire en cours");
 	private static final CommandeCD commandeCd = new CommandeCD("cd",
-			"Cette commande permet de se d�placer dans un r�pertoire qui existe dans le dossier en cours.");
-	private static final CommandeDir commandeDir = new CommandeDir("dir", "affiche le contenu du r�pertoire ", true);
+			"Cette commande permet de se déplacer dans un répertoire qui existe dans le dossier en cours.");
+	private static final CommandeDir commandeDir = new CommandeDir("dir", "affiche le contenu du répertoire ", true);
 	private static final CommandeDirng commandeDirng = new CommandeDirng("dirng",
-			"Cette commande affiche le contenu du r�pertoire en cours,exactement comme la commande dir, mais en plus affiche le nombre de r�pertoire et le nombre de fichier.");
+			"Cette commande affiche le contenu du répertoire en cours,exactement comme la commande dir, mais en plus affiche le nombre de répertoire et le nombre de fichier.");
 	private static final CommandeGetVars commandeGetVars = new CommandeGetVars("getVars",
-			"cette commande pertmet d'afficher les variable d'environnement avec l'option : -env et les propriétés de la jvm avec l'option : -prop si pas d'option les propriétés et les variables d'environnement sont affichées");
+			"cette commande permet d'afficher les variable d'environnement avec l'option : -env et les propriétés de la jvm avec l'option : -prop si pas d'option les propriétés et les variables d'environnement sont affichées");
 	private static final CommandeCopy commandeCopy = new CommandeCopy("copy",
 			" cette commande permet de copier un fichier grâce a un autre fichier source");
 	private static final CommandeFline commandeFline = new CommandeFline("fline",
@@ -93,7 +93,12 @@ public final class Menu {
 		hm.put(commandeGetVars.getNom(), commandeGetVars.getDescription());
 		hm.put(help.getNom(), help.getDescription());
 		hm.put(commandeNow.getNom(), commandeNow.getDescription());
-
+		hm.put(commandeFind.getNom(), commandeFind.getDescription());
+		hm.put(commandeFline.getNom(), commandeFline.getDescription());
+		hm.put("exit", "cette commande permet de quitter l'application");
+		hm.put("quit", "cette commande permet de quitter l'application");
+		hm.put("pwd", "cette commande permet d'afficher le répertoire en cours d'utilisation");
+		hm.put("HistClear", "cette commande permet de vider l'historique");
 		help.setHm(hm);
 
 		while (!verif) {
@@ -137,7 +142,7 @@ public final class Menu {
 					commandeRiver.executer(params);
 
 				} else {
-					System.out.println("Cette commande prend un paramètre !");
+					commandeRiver.executer();
 				}
 
 			case "isprime":
@@ -147,7 +152,7 @@ public final class Menu {
 					commandeIsPrime.executer(params);
 
 				} else {
-					System.out.println("Cette commande prend un param�tre !");
+					commandeIsPrime.executer();
 				}
 
 				break;
@@ -199,7 +204,7 @@ public final class Menu {
 
 				} else {
 
-					System.out.println("Cette commande prend un paramètre !");
+					commandeCat.executer();
 
 				}
 
@@ -211,7 +216,7 @@ public final class Menu {
 					String paramètres = currentDir + "\\" + params;
 					commandeCopy.executer(paramètres);
 				} else {
-					System.out.println("Cette commande prend un paramètre !");
+					commandeCopy.executer();
 				}
 				break;
 

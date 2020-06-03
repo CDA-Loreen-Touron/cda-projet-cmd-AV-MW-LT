@@ -1,7 +1,5 @@
 package models;
 
-
-
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -13,13 +11,10 @@ import tools.Menu;
 
 public final class CommandeCopy extends Commande {
 
-
 	public CommandeCopy(String pNom, String pDescription) {
 		super(pNom, pDescription);
 		// TODO Auto-generated constructor stub
 	}
-
-
 
 	@Override
 	public void executer(String pParams) {
@@ -71,12 +66,10 @@ public final class CommandeCopy extends Commande {
 					}
 				}
 			}
-		}else {
+		} else {
 			System.out.println("Un paramètre est manquant.");
 		}
 	}
-
-
 
 	@Override
 	public void executer() {
