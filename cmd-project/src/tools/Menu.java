@@ -15,6 +15,7 @@ import models.CommandeFind;
 import models.CommandeFline;
 import models.CommandeGetVars;
 import models.CommandeIsPrime;
+import models.CommandeNow;
 import models.CommandeRiver;
 import models.Help;
 import models.Hystory;
@@ -53,6 +54,7 @@ public final class Menu {
 			"cette commande permet : d'afficher le nombre de lignes du fichier grâce à l'option -n , de débuter la recherhce à partir d'une certaine ligne grâce à l'option -d , finir la recherche à une certaine ligne grâce à l'option -f et de recherche un mot dans un ligne et de l'afficher grâce à l'option -s ");
 	private static final CommandeCount commandeCount = new CommandeCount("count",
 			" cette commande permet de  compter les dossiers et fichiers du  dossier en cours. Pour compter les dossiers et fichiers dans les sous-dossiers, entrer -r en option. -d affiche le nombre de dossiers et -f le nombre de fichiers. ");
+	private static final CommandeNow commandeNow = new CommandeNow("Now", "Cette commande affiche la date et l'heure");
 
 	public static String getCurrentDir() {
 		return currentDir;
@@ -90,6 +92,7 @@ public final class Menu {
 		hm.put(commandeCopy.getNom(), commandeCopy.getDescription());
 		hm.put(commandeGetVars.getNom(), commandeGetVars.getDescription());
 		hm.put(help.getNom(), help.getDescription());
+		hm.put(commandeNow.getNom(), commandeNow.getDescription());
 
 		help.setHm(hm);
 
@@ -251,6 +254,18 @@ public final class Menu {
 
 				} else {
 					commandeFline.executer();
+				}
+
+				break;
+
+			case "now":
+				if (indice != -1) {
+					historique.ajouterElementList("now " + params);
+					commandeNow.executer(params);
+
+				} else {
+					historique.ajouterElementList("now");
+					commandeNow.executer();
 				}
 
 				break;
