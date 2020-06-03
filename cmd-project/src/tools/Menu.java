@@ -11,6 +11,7 @@ import models.CommandeCrf;
 import models.CommandeDir;
 import models.CommandeDirng;
 import models.CommandeFind;
+import models.CommandeFline;
 import models.CommandeGetVars;
 import models.CommandeIsPrime;
 import models.CommandeRiver;
@@ -47,6 +48,8 @@ public final class Menu {
 			"cette commande pertmet d'afficher les variable d'environnement avec l'option : -env et les propriétés de la jvm avec l'option : -prop si pas d'option les propriétés et les variables d'environnement sont affichées");
 	private static final CommandeCopy commandeCopy = new CommandeCopy("copy",
 			" cette commande permet de copier un fichier grâce a un autre fichier source");
+	private static final CommandeFline commandeFline = new CommandeFline("fline",
+			"cette commande permet : d'afficher le nombre de lignes du fichier grâce à l'option -n , de débuter la recherhce à partir d'une certaine ligne grâce à l'option -d , finir la recherche à une certaine ligne grâce à l'option -f et de recherche un mot dans un ligne et de l'afficher grâce à l'option -s ");
 
 	public static String getCurrentDir() {
 		return currentDir;
@@ -230,12 +233,23 @@ public final class Menu {
 				}
 
 				break;
+			case "fline":
+				if (indice != -1) {
+					historique.ajouterElementList("getvars");
+					commandeFline.executer(currentDir + "\\" + params);
+
+				} else {
+					commandeFline.executer();
+				}
+
+				break;
 
 			default:
 				System.out.println("Commande inconnus");
 				break;
 
 			}
+
 		}
 	}
 
