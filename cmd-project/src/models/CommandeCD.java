@@ -26,14 +26,23 @@ public class CommandeCD extends Commande {
 
 		if (m.find()) {
 			if (pParams.equals("..")) {
-				if (!Menu.getCurrentDir().equals("c:\\")) {
+				if (!Menu.getCurrentDir().equals("C:")) {
 					int lastBackSlash = Menu.getCurrentDir().lastIndexOf('\\');
 					Menu.setCurrentDir(Menu.getCurrentDir().substring(0, lastBackSlash));
 				}
+
 			} else {
 				System.out.println("Le chemin d'accès spécifié est introuvable");
 			}
-		} else {
+		} else if (new File(pParams).isDirectory()) {
+			pParams = pParams.replace('/', '\\');
+			Menu.setCurrentDir(pParams);
+		}
+
+		else {
+
+			pParams = pParams.replace("/", "\\");
+
 			if (!Menu.getCurrentDir().equals("C:\\")) {
 				File directory = new File(Menu.getCurrentDir() + "\\" + pParams);
 
