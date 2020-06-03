@@ -62,9 +62,10 @@ public class CommandeFline extends Commande {
 					try {
 						if (tab[i].equals("-f")) {
 							fin = Long.parseLong(tab[i + 1]);
+
 						}
 						if (tab[i].equals("-d")) {
-							debut = Integer.parseInt(tab[i + 1]);
+							debut = Integer.parseInt(tab[i + 1]) - 1;
 						}
 						if (tab[i].equals("-s")) {
 							recherche = tab[i + 1];
@@ -73,7 +74,7 @@ public class CommandeFline extends Commande {
 
 					} catch (IndexOutOfBoundsException e) {
 
-						System.out.println("les options prennent une valeur chiffré !");
+						System.out.println("les options prennent une valeur !");
 						return;
 					} catch (NumberFormatException e) {
 						System.out.println(

@@ -192,7 +192,7 @@ public final class Menu {
 			case "cat":
 				if (indice != -1) {
 					historique.ajouterElementList("cd" + params);
-					commandeCat.executer(params);
+					commandeCat.executer(currentDir + "\\" + params);
 
 				} else {
 
