@@ -12,15 +12,18 @@ import models.CommandeDirng;
 import models.CommandeFind;
 import models.CommandeGetVars;
 import models.CommandeIsPrime;
+import models.CommandeNow;
 import models.CommandeRiver;
 import models.Help;
 import models.Hystory;
+
 
 public final class Menu {
 	private static HashMap<String, String> hm = new HashMap<>();
 
 	private static boolean verif;// false par defaut
 	private static String currentDir = "c:\\";
+	
 	private static final Help help = new Help("help", "Cette commande affiche une description pour chaque commande");
 	private static final CommandeIsPrime commandeIsPrime = new CommandeIsPrime("CommandeIsPrime",
 			"Cette commande prend en parametre un entier et affiche yes si ce parametre est un nombre premier non sinon");
@@ -45,6 +48,7 @@ public final class Menu {
 			"cette commande pertmet d'afficher les variable d'environnement avec l'option : -env et les propriétés de la jvm avec l'option : -prop si pas d'option les propriétés et les variables d'environnement sont affichées");
 	private static final CommandeCopy commandeCopy = new CommandeCopy("copy",
 			" cette commande permet de copier un fichier grâce a un autre fichier source");
+	private static final CommandeNow commandeNow = new CommandeNow ("Now", "Cette commande affiche la date et l'heure");
 
 	public static String getCurrentDir() {
 		return currentDir;
@@ -57,6 +61,7 @@ public final class Menu {
 	private static String params = "";
 
 	public static void menu() {
+		
 		hm.put(commandeCat.getNom(), commandeCat.getDescription());
 		hm.put(commandeIsPrime.getNom(), commandeIsPrime.getDescription());
 		hm.put(commandeRiver.getNom(), commandeRiver.getDescription());
@@ -67,6 +72,7 @@ public final class Menu {
 		hm.put(commandeDir.getNom(), commandeDir.getDescription());
 		hm.put(commandeDirng.getNom(), commandeDirng.getDescription());
 		hm.put(help.getNom(), help.getDescription());
+		hm.put(commandeNow.getNom(), commandeNow.getDescription());
 
 		help.setHm(hm);
 
@@ -224,6 +230,19 @@ public final class Menu {
 				}
 
 				break;
+				
+			case "now":
+				if (indice != -1) {
+					historique.ajouterElementList("now "+params );
+					commandeNow.executer(params);
+
+				} else {
+					historique.ajouterElementList("now");
+					commandeNow.executer();
+				}
+
+				break;
+				
 
 			default:
 				System.out.println("Commande inconnus");

@@ -1,6 +1,5 @@
 package exec;
 
-import models.Help;
 import tools.Menu;
 
 public class ProgramMain {
