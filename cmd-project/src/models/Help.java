@@ -37,6 +37,6 @@ public class Help extends Commande {
 	@Override
 	public void executer(String pParams) {
 		System.out.println("cette commande ne prend pas de paramètre");
-		
+
 	}
 }
